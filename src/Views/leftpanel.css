@@ -1,0 +1,209 @@
+.leftpanelbody {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+ 
+  font-family: "calibri";
+}
+
+/*Left Margin Section*/
+.leftpanelbody__margin {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 14px;
+  border-right: 1px solid white;
+}
+
+.leftpanelbody__margin__header {
+}
+
+.leftpanelbody__margin__body {
+  flex-grow: 1;
+  background-color: var(--yellow);
+}
+
+.leftpanelbody__margin__footer {
+}
+
+.leftpanelbody__content {
+  flex: 1 1;
+  background-color: var(--blue);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-right-radius: 73px;
+  position: absolute;
+  width: 98%;
+  left: 14px;
+  z-index: 10;
+}
+
+.leftpanelbody__content__heading {
+  width: 100%;
+  flex: 0 0 47px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.leftpanelbody__content__heading > h1 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.leftpanelbody__content__body {
+  display: flex;
+  background-color: var(--blue);
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  align-self: center;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  padding: 4px;
+  justify-content: flex-start;
+  overflow: overlay;
+}
+
+.leftpanelbody__content__body::-webkit-scrollbar {
+  width: 5px;
+}
+.leftpanelbody__content__body::-webkit-scrollbar-track {
+  background-color: var(--blue);
+}
+
+.leftpanelbody__content__body::-webkit-scrollbar-thumb {
+  background-color: white;
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+}
+
+.leftpanelbody__content__body__description {
+  color: black;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.8rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 4px;
+  border-bottom-right-radius: 21px;
+  border-top-right-radius: 21px;
+  flex-grow: 1;
+}
+.leftpanelbody__content__body__description>p{
+
+}
+
+.leftpanelbody__content__body__technicalSkill__header {
+  box-sizing: inherit;
+  display: flex;
+  background-color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom-right-radius: 21px;
+  margin-bottom: 4px;
+  border-top-right-radius: 21px;
+}
+
+.leftpanelbody__content__body__technicalSkill {
+  background-color: white;
+  border-bottom-right-radius: 21px;
+  border-top-right-radius: 21px;
+  padding: 5px 10px 10px 10px;
+  margin-bottom: 4px;
+}
+
+.leftpanelbody__content__body__experience__header {
+  box-sizing: inherit;
+  display: flex;
+  background-color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom-right-radius: 21px;
+  margin-bottom: 4px;
+  border-top-right-radius: 21px;
+}
+
+.leftpanelbody__content__body__ratings {
+  width: 100%;
+  background-color: #ffffff;
+  flex-grow: 1;
+  border-bottom-right-radius: 21px;
+  border-top-right-radius: 21px;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.leftpanelbody__content__selection {
+  height: 150px;
+  min-height: 150px;
+  width: 100%;
+  background-color: var(--blue);
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-bottom-right-radius: 73px;
+  display: flex;
+  padding: 4px;
+}
+
+.leftpanelbody__content__selection_inner {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 4px;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 69px;
+}
+
+.leftpanelbody__content__selection__Avatars {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+
+.leftpanelbody__content__selection__Avatars > img {
+  object-fit: cover;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+}
+
+.leftpanelbody__content__selection__Avatars > img:hover {
+  border: 8px solid black;
+  background-color: violet;
+}
+
+.contento {
+  border: 4px solid var(--yellow);
+}
+.soundo {
+  border: 4px solid #09ccff;
+}
+.teacho {
+  border: 4px solid #fa00ff;
+}
+.webo {
+  border: 4px solid #264148;
+}
+.active {
+  border: 8px solid var(--blue);
+  background-color: violet;
+  transform: scale(1.3);
+}

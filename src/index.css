@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+ 
+}
+
+:root {
+  --blue : #3434CA;
+  --yellow : #ffc738;
+
+  /*WEBO*/
+  --webo-blue-dark : #0B048B;
+  --webo-grey-light : #434343;
+  --webo-black : #000000;
+  --webo-font: 1rem;
+  --webo-font-main : "Roboto";
+  --webo-font-sub : "Calibri";
+  
+  /*TEACHO*/
+  --teacho-purple-dark : #7B00D6;
+  --teacho-blue-dark : #0A0546;
+  --teacho-grey-light : #434343;
+  --teacho-font: 1rem;
+  --teacho-font-main : "Roboto";
+  --teacho-font-sub : "Calibri";
+  --teacho-black : #000000;
+  
+}
+
+html{
+  font-size: 67.5%;
+ 
+}
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;  
+  background-color: black ;
+  font-family: "Roboto";
+  font-size: inherit ;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.body::-webkit-scrollbar { 
+  display: none;
+ }
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+

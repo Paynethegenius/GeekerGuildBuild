@@ -1,0 +1,147 @@
+.homepage {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.homepageModal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.homepageModal__body {
+  width: 20%;
+  height: 30%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px;
+  min-width: 300px;
+  min-height: 200px;
+}
+
+.homepageModal__Welcome {  
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;flex: 4;
+  
+}
+.homepageModal__Welcome>h1{  
+    text-align: center;
+    font-size: 1.76rem;
+    
+}
+
+.homepageModal__Enter {
+  width: 100%;
+  flex: 3;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepageModal__Enter > button {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 30%;
+    font-size: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+
+
+.homepageModal__Enter > button:hover {
+    width: 45%;
+    height: 25%;
+    font-size: 1em;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+.homepage__body {
+  background-color: rgb(0, 0, 0);
+  flex: 1;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.homepage__body__main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+    
+}
+.homepage__body__logo {
+display: flex;
+min-width: 500px;
+
+
+}
+.homepage__body__logo>img {
+  margin-top: -30px;
+  width: 100%;
+  margin-bottom: -10px;
+  margin-left: 2.5%;
+}
+
+.homepage__body__text {
+  color: var(--yellow);
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.homepage__footer {
+  background-color: rgb(149, 67, 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+  transform-origin: bottom;
+  transform: translateY(100%);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: none;
+}
+
+.homepage__footer__button {
+ padding: 0 50px;
+  height: 30px;
+  border-radius: 10px;
+  border: solid var(--yellow) 2px;
+  background-color: white;
+  font-size: 1.6rem;
+}
+
+.homepage__footer__button:hover {
+  
+  height: 30px;
+  border-radius: 10px;
+  border: solid var(--yellow) 2px;
+  transform: scale(1.1);
+  background-color: black;
+  color: white;
+}

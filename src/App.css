@@ -1,0 +1,15 @@
+.App {
+  width: 100vw;
+  height: calc(100vh - 4px);
+  
+}
+
+.allheaders{
+  height : 47px;
+  background-color: var(--blue);
+}
+
+.allfooters{
+  height : 50px;
+  background-color: var(--blue);
+}

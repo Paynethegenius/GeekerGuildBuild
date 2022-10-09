@@ -1,0 +1,12 @@
+.leftpanelbody__content__body__description {
+    color: black;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.2em;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 4px;
+    border-bottom-right-radius: 21px;
+    border-top-right-radius: 21px;
+    flex-grow: 1;
+    opacity: 1;
+  }

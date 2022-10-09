@@ -1,0 +1,35 @@
+.description__header{
+    box-sizing: inherit;
+    display: flex;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom-right-radius: 21px;
+    margin-bottom: 4px;
+    opacity: 1;
+    transform-origin: top;
+    transform: scaleX(1);
+}
+.description__header > p {
+  padding: 3px 9px;
+  background-color:  var(--blue);
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.6rem;
+  opacity: 1;
+}
+
+.description__header > h2 {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.borderadd{
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+
+}

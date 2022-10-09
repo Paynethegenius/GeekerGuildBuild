@@ -1,0 +1,20 @@
+.charexperience{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top-right-radius: 21px;
+  padding: 5px;
+  opacity: 1;
+}
+
+.charexperience > img {
+  width: 12%;
+  margin: 2px;
+}
+
+
+.charexperience__img{
+
+}

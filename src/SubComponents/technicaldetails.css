@@ -1,0 +1,47 @@
+.technicaldetails {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+ 
+  
+ 
+}
+
+.technicaldetails__details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    width: 100%;
+}
+.technicaldetails__details__icon {
+    
+}
+.technicaldetails__details__description {
+    font-size: 1.8rem;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+.technicaldetails__rating {
+    width: 98%;
+    position: relative;
+    display: flex;
+}
+
+.svgBar{
+    width: 100%;
+}
+
+.svgLevel{
+    position: absolute;
+    bottom: 0;
+    left: 0;    
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(1);
+   
+
+}
