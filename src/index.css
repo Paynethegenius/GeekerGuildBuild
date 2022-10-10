@@ -28,6 +28,15 @@
   --teacho-font-sub : "Calibri";
   --teacho-black : #000000;
   
+  /*SOUNDO*/
+  --soundo-pink-dark : #DB666C;
+  --soundo-blue-dark : #0A0546;
+  --soundo-grey-light : #434343;
+  --soundo-font: 1rem;
+  --soundo-font-main : "Roboto";
+  --soundo-font-sub : "Calibri";
+  --soundo-black : #000000;
+  
 }
 
 html{

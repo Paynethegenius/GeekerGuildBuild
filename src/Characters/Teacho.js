@@ -5,10 +5,12 @@ import teachoArt2 from "../Images/Saly-14.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
-import ISLogo from "../Images/ISLogo.png";
-import SDLogo from "../Images/SDLogo.png";
+
 import Medal from "../Images/Medal.png";
-import linePng from "../Images/Line.png";
+import BCSLogo from "../Images/BCS_logo.png";
+import UnibenLogo from "../Images/Uniben-Logo.png";
+
+
 import Avatar1 from "../Images/Avatar1.png";
 import Avatar2 from "../Images/Avatar2.png";
 import Avatar3 from "../Images/Avatar3.png";
@@ -125,7 +127,7 @@ function Teacho() {
                         "Hi Duro,<br></br>
                         Thanks for the BCS class. <br></br>It helped in passing
                         in one writing." &nbsp;&nbsp;&nbsp; - Gabby
-                      </p>dd
+                      </p>
                     </div>
                   </div>
                   <div className="teacho__testimonial ">
@@ -160,7 +162,7 @@ function Teacho() {
 
                 <div className="teacho__projectlist">
                   <div className="teacho__projectlist__avatar">
-                    <img src={Medal} alt="whatsapp" />
+                    <img src={BCSLogo} alt="BCSLogo" />
                   </div>
                   <div className="teacho__projectlist__desc">
                   <p>
@@ -176,7 +178,7 @@ function Teacho() {
 
                 <div className="teacho__projectlist">
                   <div className="teacho__projectlist__avatar">
-                    <img src={Medal} alt="whatsapp" />
+                    <img src={BCSLogo} alt="BCSLogo" />
                   </div>
                   <div className="teacho__projectlist__desc">
                   <p>
@@ -192,7 +194,7 @@ function Teacho() {
 
                 <div className="teacho__projectlist">
                   <div className="teacho__projectlist__avatar">
-                    <img src={Medal} alt="whatsapp" />
+                    <img src={BCSLogo} alt="BCSLogo" />
                   </div>
                   <div className="teacho__projectlist__desc">
                     <p>
@@ -208,7 +210,7 @@ function Teacho() {
 
                 <div className="teacho__projectlist">
                   <div className="teacho__projectlist__avatar">
-                    <img src={Medal} alt="whatsapp" />
+                    <img src={UnibenLogo} alt="UnibenLogo" />
                   </div>
                   <div className="teacho__projectlist__desc">
                   <p>

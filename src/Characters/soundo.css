@@ -1,21 +1,21 @@
-.teacho__page {
+.soundo__page {
   background-color: white;
   display: flex;
   font-size: 1rem;
 }
 
-.teacho__page ::-webkit-scrollbar-thumb {
-  background-color: var(--teacho-purple-dark);
+.soundo__page ::-webkit-scrollbar-thumb {
+  background-color: var(--soundo-pink-dark);
   border-radius: 10px;
   border: 3px solid white;
 }
 
-.teacho__page ::-webkit-scrollbar {
+.soundo__page ::-webkit-scrollbar {
   background-color: rgb(255, 255, 255);
 }
 
-.teacho__leftpanel {
-  flex: 0 0 40%;
+.soundo__leftpanel {
+  flex: 0 0 50%;
   background-color: rgb(15, 14, 15);
   max-height: 100vh;
   height: 100vh;
@@ -26,19 +26,19 @@
   position: relative;
 }
 
-.teachoArt1 {
+.soundoArt1 {
   background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
   display: flex;
 }
 
-.teachoArt1 img {
-  width: 80%;
+.soundoArt1 img {
+  width: 100%;
   margin: auto;
 }
 
-.teachoArt2 {
+.soundoArt2 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -48,7 +48,7 @@
   left: 0;
 }
 
-.teachoArt2a {
+.soundoArt2a {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -60,7 +60,7 @@
   animation-fill-mode: forwards;
 }
 
-.teachoArt2 img {
+.soundoArt2 img {
   width: 50%;
   margin: auto;
 }
@@ -74,7 +74,7 @@
     bottom: 0%;
   }
 }
-.teacho__rightpanel {
+.soundo__rightpanel {
   flex: 5;
   display: flex;
   height: 100vh;
@@ -85,7 +85,7 @@
   position: relative;
 }
 
-.teacho__rightpanel__body {
+.soundo__rightpanel__body {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -95,89 +95,109 @@
 
 /*RIGHT PANEL TOP PAGE*/
 
-.teacho__rightpanel__body__top {
+.soundo__rightpanel__body__top {
   width: 100%;
-
   display: flex;
-
-  /* padding: 8rem 4rem 10rem 4rem;   */
   max-width: 1200px;
   min-height: 100vh;
-
   align-items: center;
   flex-shrink: 0;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
+  justify-content: center;
+  background-color: var(--soundo-pink-dark);
+ 
 }
 
-.teacho__rightpanel__body__top__container {
+.soundo__rightpanel__body__top__container {
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-around;
-  padding-left: 4rem;
-  height: 80%;
+  justify-content: flex-start;
+  height: 100%;
+  justify-content: flex-end;
+  
+ 
   /* max-width: 800px; */
+}
+
+.soundo__rightpanel__body__top__heading{
+  background-color: var(--soundo-pink-dark);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+  flex-direction: column;
+  flex: 2;
+ 
+}
+
+.soundo__rightpanel__body__top__name{
+  width: 80%;
+  color: white;
+ 
 }
 
 /*RIGHT PANEL TOP-RIGHT PAGE*/
 
-.teachoTag {
+.soundoTag {
   font-family: "Calibri";
-  color: var(--teacho-black);
-  font-size: calc(5.7 * var(--teacho-font));
+  color: white;
+  font-size: calc(5.7 * var(--soundo-font));
   font-weight: 400;
-  letter-spacing: -9px;
-}
-
-.teachoNum {
-  font-family: "Calibri";
-  color: var(--teacho-grey-light);
-  font-size: calc(3.8 * var(--teacho-font));
   letter-spacing: -5px;
 }
 
-.teacho__rightpanel__body__top__description {
-  flex: 0 50%;
+.soundoNum {
+  font-family: "Calibri";
+  color:white;
+  font-size: calc(3.8 * var(--soundo-font));
+  letter-spacing: -3px;
+}
+
+.soundo__rightpanel__body__top__description__container{
+    flex: 4;
   /* min-width: 600px; */
-  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  background: #000;
+}
+
+.soundo__rightpanel__body__top__description {
+
+  flex: 1;
+  /* min-width: 600px; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: flex-start;
-  /* background-color: rgb(121, 121, 121); */
-  padding-right: 4rem;
+  padding-bottom : 40px;
+  
 }
 
 
 
-.teacho__primary__name {
+.soundo__primary__name {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.teacho__name {
-  color: var(--teacho-purple-dark);
-  font-size: calc(7.5 * var(--teacho-font));
-  line-height: calc(8 * var(--teacho-font));
+.soundo__name {
+  color: white;
+  font-size: calc(7.5 * var(--soundo-font));
+  line-height: calc(8 * var(--soundo-font));
   font-weight: 700;
   position: relative;
 }
 
-.teacho__tag {
-  color: white;
-  font-size: calc(3 * var(--teacho-font));
-  line-height: calc(5.3 * var(--teacho-font));
-  font-weight: 400;
-  background-color: #04a5bb;
-  text-align: center;
-  border-radius: 10px;
-  margin-left: 20px;
-  padding: 5px 15px;
-}
 
-.teacho__definition-list {
+
+.soundo__definition-list {
   display: grid;
   grid-template-columns:5fr;
   grid-template-rows: 0fr 0fr 0fr;
@@ -186,38 +206,38 @@
   /* height: 345px; */
 }
 
-.teacho__points {
-  color: var(--teacho-grey-light);
+.soundo__points {
+  color: var(--soundo-pink-dark);
   font-style: normal;
-  font-size: calc(2.6 * var(--teacho-font));
-  line-height: calc(3.5 * var(--teacho-font));
-  font-weight: 300;
+  font-size: calc(2.6 * var(--soundo-font));
+  line-height: calc(4 * var(--soundo-font));
+  font-weight: 700;
   width: 100%;
-  font-family: var(--teacho-font-main);
+  font-family: var(--soundo-font-main);
 }
 
-.teacho__one {
+.soundo__one {
   grid-row: 1/2;
   grid-column: 1/3;
 }
 
 .spanColor{
-    color: var(--teacho-purple-dark);
+    color: var(--soundo-pink-dark);
     font-weight: 700;
     
 }
 
-.teacho__two {
+.soundo__two {
     grid-row: 2/3;
     grid-column: 1/3;
     overflow-wrap: break-word;
-    padding-right: 1.2em;
-    font-family: "Amatic";
-    font-size: 5rem;
-    line-height: 5.9rem;
-    font-weight: 700;
+    
+    font-family: "Calibri";
+    font-size: 2.5rem;
+    line-height: 3.7rem;
+    font-weight: 400;
 }
-.teacho__three {
+.soundo__three {
     grid-row: 3/3;
     grid-column: 1/3;
     overflow-wrap: break-word;
@@ -225,7 +245,7 @@
 }
 
 
-.teacho__rightpanel__body__top__base {
+.soundo__rightpanel__body__top__base {
   display: flex;
   justify-content:space-between;
  
@@ -234,48 +254,44 @@
   
 }
 
-.teacho__base_left{
-
-}
-
-.teacho__socials {
+.soundo__socials {
   margin-right: auto;
   display: flex;
   align-items: center;
   margin-top: 20px;
 }
-.teacho__socials > img {
+.soundo__socials > img {
   width: 20%;
   height: auto;
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
-.teacho__contact {
+.soundo__contact {
   display: flex;
   
   align-items: flex-end;
   width: 100%;
   
 }
-.teacho__contact > button {
-  font-size: calc(2 * var(--teacho-font));
+.soundo__contact > button {
+  font-size: calc(2 * var(--soundo-font));
   border-radius: .5rem;
   outline: none;
   border: none;
   padding: 1.5rem 4rem;
   color: white;
-  background-color: var(--teacho-purple-dark);
+  background-color: var(--soundo-pink-dark);
 }
 
-.teacho__accolades{
+.soundo__accolades{
     align-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.teacho__accolades > img{
+.soundo__accolades > img{
    width: 120px;
    margin-left: 10px;
 }
@@ -285,9 +301,9 @@
 
 
 /*RIGHT PANEL Mid PAGE*/
-.teacho__rightpanel__body__mid {
+.soundo__rightpanel__body__mid {
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   display: flex;
   min-height: 100vh;
   padding: 4rem 4rem 4rem 4rem;
@@ -295,9 +311,14 @@
   font-family: "Roboto";
   flex-shrink: 0;
   border-bottom-left-radius: 0px;
+  background-image: url("../Images/Saly-37.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+ background-position: center;
+  
 }
 
-.teacho__rightpanel__body__mid__container {
+.soundo__rightpanel__body__mid__container {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -307,7 +328,7 @@
   width: 100%;
   height: 100%;
 }
-.teacho__rightpanel__body__mid__container__content {
+.soundo__rightpanel__body__mid__container__content {
   min-width: 400px;
   width: 100%;
   height: 100%;
@@ -322,42 +343,42 @@
 
 
 
-.teacho__content__divider {
+.soundo__content__divider {
   display: flex;
   width: 100%;
   align-items: center;
-  font-family: var(--teacho-font-sub);
+  font-family: var(--soundo-font-sub);
   font-weight: 300;
-  font-size: calc(3 * var(--teacho-font));
+  font-size: calc(3 * var(--soundo-font));
 }
 
-.teacho__content__divider > p {
+.soundo__content__divider > p {
   margin: 0 20px;
-  color: var(--teacho-blue-dark);
+  color: var(--soundo-blue-dark);
   font-style: italic;
 }
 
-.teacho__lineboxOne {
+.soundo__lineboxOne {
   flex: 4;
   height: 4px;
-  background-color: var(--teacho-blue-dark);
+  background-color: var(--soundo-blue-dark);
 }
 
-.teacho__lineboxTwo {
+.soundo__lineboxTwo {
   flex: 4;
   height: 4px;
-  background-color: var(--teacho-blue-dark);
+  background-color: var(--soundo-blue-dark);
     position: relative;
 }
 
-.teacho__testimonials{
+.soundo__testimonials{
     display: flex;
     width: 100%;
     justify-content: center;
 }
 
 
-.teacho__testimonial{
+.soundo__testimonial{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -372,7 +393,7 @@
    
 }
 
-.teacho__testimonial__card__top{
+.soundo__testimonial__card__top{
     width: 100%;
     background-color:#0a0546e0;
     background-image: url(../Images/testimonialBG1.png);
@@ -388,7 +409,7 @@
 }
 
 
-.teacho__testimonial__card__top>img{
+.soundo__testimonial__card__top>img{
     width: 65%;
     transform: translateY(10px);
     z-index: 1;   
@@ -402,13 +423,13 @@
 
 }
 
-.teacho__testimonial__card__bottom{
+.soundo__testimonial__card__bottom{
     width:100%;
     color: white;
     text-align: center;
     font-family: "calibri";
-    font-size: calc(1.50* var(--teacho-font));
-    background-color: var(--teacho-black);
+    font-size: calc(1.50* var(--soundo-font));
+    background-color: var(--soundo-black);
     border-bottom-left-radius: 23px ;
     border-bottom-right-radius: 23px ;
     padding: 10px;
@@ -431,13 +452,13 @@
     justify-content: flex-start;
   }
   
-  .teacho__projectlist__avatar {
+  .soundo__projectlist__avatar {
     background-color: rgba(0, 0, 0, 0);  
     margin-right:300px;
     display: contents;
   }
   
-  .teacho__projectlist__avatar > img {
+  .soundo__projectlist__avatar > img {
     box-sizing:border-box;
     background-color: rgb(255, 255, 255);
     width: 6%;
@@ -448,11 +469,11 @@
     
   }
   
-  .teacho__projectlist__desc {
+  .soundo__projectlist__desc {
     color: rgb(255, 255, 255);
     font-size: 1.8rem;
     font-weight: 300;
-    background-color: var(--teacho-blue-dark);
+    background-color: var(--soundo-blue-dark);
     height: 100%;
     display: flex;
     align-items: center;
@@ -463,13 +484,13 @@
 
   }
 
-.teacho__degree{
-font-size: calc(1.4 * var(--teacho-font));
+.soundo__degree{
+font-size: calc(1.4 * var(--soundo-font));
 font-weight: 500;
 }
 
-.teacho__degree__definition{
-    font-size: calc(1.2 * var(--teacho-font));
+.soundo__degree__definition{
+    font-size: calc(1.2 * var(--soundo-font));
     font-weight: 300;
 }
   
@@ -479,39 +500,39 @@ font-weight: 500;
 /* MEDIA QUERY */
 
 @media screen and (max-width: 900px) {
-  .teacho__page {
-    /* --teacho-font: 1.5rem; */
+  .soundo__page {
+    /* --soundo-font: 1.5rem; */
   }
 
-  .teacho__leftpanel {
+  .soundo__leftpanel {
     visibility: hidden;
     display: none;
   }
 
-  .teacho__rightpanel__body__top {
+  .soundo__rightpanel__body__top {
     padding: 0;
   }
 }
 @media screen and (max-width: 600px) {
-  .teacho__leftpanel {
+  .soundo__leftpanel {
     visibility: hidden;
     display: none;
   }
 
-  .teacho__rightpanel__body__top {
+  .soundo__rightpanel__body__top {
     padding: 0;
   }
 
-  .teacho__rightpanel__body__top {
+  .soundo__rightpanel__body__top {
     flex-direction: column;
   }
 
-  .teacho__art {
+  .soundo__art {
     width: 60%;
     min-width: 0px;
   }
 
-  .teacho__rightpanel__body__top__right__image {
+  .soundo__rightpanel__body__top__right__image {
     width: 80%;
     display: flex;
     align-items: center;
