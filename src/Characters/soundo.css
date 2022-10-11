@@ -105,7 +105,6 @@
   /* margin-bottom: 4rem; */
   justify-content: center;
   background-color: var(--soundo-pink-dark);
- 
 }
 
 .soundo__rightpanel__body__top__container {
@@ -116,26 +115,23 @@
   justify-content: flex-start;
   height: 100%;
   justify-content: flex-end;
-  
- 
+
   /* max-width: 800px; */
 }
 
-.soundo__rightpanel__body__top__heading{
+.soundo__rightpanel__body__top__heading {
   background-color: var(--soundo-pink-dark);
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   flex-direction: column;
   flex: 2;
- 
 }
 
-.soundo__rightpanel__body__top__name{
+.soundo__rightpanel__body__top__name {
   width: 80%;
   color: white;
- 
 }
 
 /*RIGHT PANEL TOP-RIGHT PAGE*/
@@ -150,13 +146,13 @@
 
 .soundoNum {
   font-family: "Calibri";
-  color:white;
+  color: white;
   font-size: calc(3.8 * var(--soundo-font));
   letter-spacing: -3px;
 }
 
-.soundo__rightpanel__body__top__description__container{
-    flex: 4;
+.soundo__rightpanel__body__top__description__container {
+  flex: 4;
   /* min-width: 600px; */
   width: 100%;
   display: flex;
@@ -167,7 +163,6 @@
 }
 
 .soundo__rightpanel__body__top__description {
-
   flex: 1;
   /* min-width: 600px; */
   width: 80%;
@@ -175,11 +170,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  padding-bottom : 40px;
-  
+  padding-bottom: 40px;
 }
-
-
 
 .soundo__primary__name {
   display: flex;
@@ -195,11 +187,9 @@
   position: relative;
 }
 
-
-
 .soundo__definition-list {
   display: grid;
-  grid-template-columns:5fr;
+  grid-template-columns: 5fr;
   grid-template-rows: 0fr 0fr 0fr;
   grid-row-gap: 6px;
   align-items: center;
@@ -221,37 +211,34 @@
   grid-column: 1/3;
 }
 
-.spanColor{
-    color: var(--soundo-pink-dark);
-    font-weight: 700;
-    
+.spanColor {
+  color: var(--soundo-pink-dark);
+  font-weight: 700;
 }
 
 .soundo__two {
-    grid-row: 2/3;
-    grid-column: 1/3;
-    overflow-wrap: break-word;
-    
-    font-family: "Calibri";
-    font-size: 2.5rem;
-    line-height: 3.7rem;
-    font-weight: 400;
+  grid-row: 2/3;
+  grid-column: 1/3;
+  overflow-wrap: break-word;
+
+  font-family: "Calibri";
+  font-size: 2.5rem;
+  line-height: 3.7rem;
+  font-weight: 400;
 }
 .soundo__three {
-    grid-row: 3/3;
-    grid-column: 1/3;
-    overflow-wrap: break-word;
-    /* padding-right: 1.2em; */
+  grid-row: 3/3;
+  grid-column: 1/3;
+  overflow-wrap: break-word;
+  /* padding-right: 1.2em; */
 }
-
 
 .soundo__rightpanel__body__top__base {
   display: flex;
-  justify-content:space-between;
- 
-  width: 70%;  
+  justify-content: space-between;
+
+  width: 70%;
   align-items: flex-end;
-  
 }
 
 .soundo__socials {
@@ -269,14 +256,13 @@
 
 .soundo__contact {
   display: flex;
-  
+
   align-items: flex-end;
   width: 100%;
-  
 }
 .soundo__contact > button {
   font-size: calc(2 * var(--soundo-font));
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   outline: none;
   border: none;
   padding: 1.5rem 4rem;
@@ -284,21 +270,17 @@
   background-color: var(--soundo-pink-dark);
 }
 
-.soundo__accolades{
-    align-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.soundo__accolades {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.soundo__accolades > img{
-   width: 120px;
-   margin-left: 10px;
+.soundo__accolades > img {
+  width: 120px;
+  margin-left: 10px;
 }
-
-
-
-
 
 /*RIGHT PANEL Mid PAGE*/
 .soundo__rightpanel__body__mid {
@@ -314,8 +296,7 @@
   background-image: url("../Images/Saly-37.png");
   background-repeat: no-repeat;
   background-size: contain;
- background-position: center;
-  
+  background-position: center;
 }
 
 .soundo__rightpanel__body__mid__container {
@@ -335,167 +316,109 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   /* background-color: rgb(121, 121, 121); */
-
   color: white;
 }
 
+.soundo__musicplayer {
+  width: 90%;
+}
 
-
-.soundo__content__divider {
+.soundo__musicplayer__container {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  border: 1px solid var(--soundo-pink-dark);
+  padding: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content: space-between;
   align-items: center;
-  font-family: var(--soundo-font-sub);
+}
+
+.soundo__musicplayer__container__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(3.3 * var(--soundo-font));
+  font-weight: 700;
+  font-family: "Inter";
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.soundo__musicplayer__container__mid__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--soundo-pink-dark);
+  padding: 20px;
+
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.soundo__musicplayer__container__mid__buttons > img {
+  width: 20%;
+}
+
+.soundo__musicplayer__container__bottom {
+  font-size: calc(2.3 * var(--soundo-font));
+}
+
+.soundo__music__list {
+  flex: 1;
+  width: 90%;
+  margin-top: 20px;
+  border: 1px solid var(--soundo-pink-dark);
+}
+
+.soundo__music__list_items {
+  list-style: none;
+  flex-direction: column;
+  align-items: flex-start; 
+  overflow-y: overlay;
+  padding: 10px;
+  height: 500px;
+}
+
+.soundo__music__list_items::-webkit-scrollbar{
+  display: none;
+}
+.soundo__music__list_item {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.784);
+  margin: 5px 0px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.soundo__music__list_item__displayPic {
+  margin-right: 20px;
+}
+.soundo__music__list_item__displayPic>img {
+  width: 70%;
+}
+
+.soundo__music__list_item__soundDetails {
   font-weight: 300;
-  font-size: calc(3 * var(--soundo-font));
 }
 
-.soundo__content__divider > p {
-  margin: 0 20px;
-  color: var(--soundo-blue-dark);
-  font-style: italic;
+.soundlabel {
+  position: relative;
+  font-size: calc(2 * var(--soundo-font));
+  font-weight: 400;
+  font-family: "Inter";
 }
 
-.soundo__lineboxOne {
-  flex: 4;
-  height: 4px;
-  background-color: var(--soundo-blue-dark);
+.soundtype {
+  font-size: calc(2 * var(--soundo-font));
+  font-weight: 200;
+  word-break: keep-all;
+  display: flex;
+  margin-top: -1rem;
 }
-
-.soundo__lineboxTwo {
-  flex: 4;
-  height: 4px;
-  background-color: var(--soundo-blue-dark);
-    position: relative;
-}
-
-.soundo__testimonials{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-
-.soundo__testimonial{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   
-    width: 200px;
- 
-    border-bottom-left-radius: 23px ;
-    border-bottom-right-radius: 23px ;
-    margin-right: 40px;
-  
-   
-}
-
-.soundo__testimonial__card__top{
-    width: 100%;
-    background-color:#0a0546e0;
-    background-image: url(../Images/testimonialBG1.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    background-position: center;
-    border-top-left-radius: 23px ;
-    border-top-right-radius: 23px ;
-    padding-top: 20px;
-  
-}
-
-
-.soundo__testimonial__card__top>img{
-    width: 65%;
-    transform: translateY(10px);
-    z-index: 1;   
-
-}
-
-.card2>img{
-    width: 55%;
-    transform: translateY(10px);
-    z-index: 1;   
-
-}
-
-.soundo__testimonial__card__bottom{
-    width:100%;
-    color: white;
-    text-align: center;
-    font-family: "calibri";
-    font-size: calc(1.50* var(--soundo-font));
-    background-color: var(--soundo-black);
-    border-bottom-left-radius: 23px ;
-    border-bottom-right-radius: 23px ;
-    padding: 10px;
-    font-style: italic;
-    z-index: 2;
-    height: 100px;
-    overflow-y: hidden;
-    display: flex;
-    align-items: center;
-}
-
-.soundo__projectlist {
-    display: flex;
-    align-items: center;
-    /* background-color: rgb(0, 0, 0); */
-    padding: 10px 10px;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    width: 100%;
-    justify-content: flex-start;
-  }
-  
-  .soundo__projectlist__avatar {
-    background-color: rgba(0, 0, 0, 0);  
-    margin-right:300px;
-    display: contents;
-  }
-  
-  .soundo__projectlist__avatar > img {
-    box-sizing:border-box;
-    background-color: rgb(255, 255, 255);
-    width: 6%;
-    border: 1px solid rgba(3, 3, 3, 0.727);
-    padding: 2px;
-   
-    margin-right: 20px;
-    
-  }
-  
-  .soundo__projectlist__desc {
-    color: rgb(255, 255, 255);
-    font-size: 1.8rem;
-    font-weight: 300;
-    background-color: var(--soundo-blue-dark);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex: 1;
-    padding-left: 20px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-  }
-
-.soundo__degree{
-font-size: calc(1.4 * var(--soundo-font));
-font-weight: 500;
-}
-
-.soundo__degree__definition{
-    font-size: calc(1.2 * var(--soundo-font));
-    font-weight: 300;
-}
-  
-
-
 
 /* MEDIA QUERY */
 
