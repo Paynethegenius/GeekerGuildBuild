@@ -5,7 +5,7 @@ import soundoArt2 from "../Images/Saly-37.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
-import Medal from "../Images/Medal.png";
+
 
 import pause from "../Svg/pause.svg";
 import play from "../Svg/play.svg";
@@ -13,9 +13,8 @@ import previous from "../Svg/skip_previous.svg";
 import next from "../Svg/skip_next.svg";
 import { soundObject } from "../Data/audio.js";
 import { useRef } from "react";
-import add from "../Svg/add.svg";
-import minus from "../Svg/minus.svg";
 import equalizer from "../Svg/equalizer.svg";
+import radio from "../Svg/radio.svg";
 import gsap from "gsap";
 
 function Soundo() {
@@ -126,7 +125,7 @@ function Soundo() {
               <div className="soundo__rightpanel__body__top__heading">
                 <div className="soundo__rightpanel__body__top__name">
                   <h1>
-                    <span className="soundoNum"> 0 2 .</span>{" "}
+                    <span className="soundoNum"> 0 4 .</span>{" "}
                     <span className="soundoTag">Soundo </span>
                   </h1>
                   <div className="soundo__primary__name">
@@ -234,18 +233,27 @@ function Soundo() {
                       </p>
                     </div>
                     <div className="soundo__musicplayer__container__mid">
-                      <div className="soundo__musicplayer__container__mid__buttons" onMouseEnter={()=>{
-                        gsap.to(".soundo__musicplayer__container__mid__buttons", {
-                          borderRadius : "120px",
-                          delay : .4
-                        })
-                      }} 
-                     onMouseLeave={()=>{
-                        gsap.to(".soundo__musicplayer__container__mid__buttons", {
-                          borderRadius : "10px",
-                          delay : .3
-                        })
-                      }} >
+                      <div
+                        className="soundo__musicplayer__container__mid__buttons"
+                        onMouseEnter={() => {
+                          gsap.to(
+                            ".soundo__musicplayer__container__mid__buttons",
+                            {
+                              borderRadius: "120px",
+                              delay: 0.4,
+                            }
+                          );
+                        }}
+                        onMouseLeave={() => {
+                          gsap.to(
+                            ".soundo__musicplayer__container__mid__buttons",
+                            {
+                              borderRadius: "10px",
+                              delay: 0.3,
+                            }
+                          );
+                        }}
+                      >
                         <img
                           onClick={prevAudio}
                           src={previous}
@@ -261,14 +269,19 @@ function Soundo() {
                               setPlaying(true);
                               setActiveIcon(pause);
                               playSound.current.pause();
-
                               playSound.current.play();
                             }
                           }}
                           src={activeIcon}
                           alt="play"
                         />
-                        <audio ref={playSound}>
+                        <audio
+                          ref={playSound}
+                          onEnded={() => {
+                            setActiveIcon(play);
+                            setPlaying(false);
+                          }}
+                        >
                           <source src={source} />
                         </audio>
 
@@ -279,11 +292,12 @@ function Soundo() {
                       <div className="soundo__nowPlaying">{name}</div>
                       <div className="soundo__volumebar">
                         <div className="soundo__volumebar__minus">
-                          <svg  onClick={() => {
-                            if (volume > 0.1) {
-                              setVolume(volume - 0.1);
-                            }
-                          }}
+                          <svg
+                            onClick={() => {
+                              if (volume > 0.1) {
+                                setVolume(volume - 0.1);
+                              }
+                            }}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             fill="#FFFFFF"
@@ -291,7 +305,6 @@ function Soundo() {
                             <path d="M0 0h24v24H0V0z" fill="none" />
                             <path d="M19 13H5v-2h14v2z" />
                           </svg>
-                          
                         </div>
 
                         <div className="soundo__volumebar__level">
@@ -301,7 +314,7 @@ function Soundo() {
                           {" "}
                           <svg
                             onClick={() => {
-                              if (volume < 1) {
+                              if (volume < 0.95) {
                                 setVolume(volume + 0.1);
                               }
                             }}
@@ -331,7 +344,7 @@ function Soundo() {
                           }}
                         >
                           <div className="soundo__music__list_item__displayPic">
-                            <img src={Medal} alt="GOTV" />
+                            <img src={radio} alt="GOTV" />
                           </div>
                           <div className="soundo__music__list_item__soundDetails">
                             <p className="soundlabel">{item.name}</p>

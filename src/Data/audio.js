@@ -12,19 +12,19 @@ import radioE from "../Audio/Soundo/Radios/5.Gotv Nigerian Idol Radio.mp3";
 
 export const soundObject = {
   jingles: [
-    { sound: soundA, name: "Nitro 121 Theme Song", Id: 0 , type : "jingle"},
-    { sound: soundB, name: "Arla Dano, Go for it English", Id: 1, type : "jingle" },
-    { sound: soundC, name: "Arla Dano, Go for it, Igbo", Id: 2 , type : "jingle"},
-    { sound: soundD, name: "Close Up Demo", Id: 3 , type : "jingle"},
-    { sound: soundE, name: "GOtv Showtime Signature tune", Id: 4, type : "jingle" },
+    { sound: soundA, name: "1. Nitro 121 Theme Song", Id: 0 , type : "jingle"},
+    { sound: soundB, name: "2. Arla Dano, Go for it English", Id: 1, type : "jingle" },
+    { sound: soundC, name: "3. Arla Dano, Go for it, Igbo", Id: 2 , type : "jingle"},
+    { sound: soundD, name: "4. Close Up Demo", Id: 3 , type : "jingle"},
+    { sound: soundE, name: "5. GOtv Showtime Signature tune", Id: 4, type : "jingle" },
   ],
 
   radios: [
-    { sound: radioA, name: "1.Arla Dano Pidgin 45 SECS", Id: 5 , type : "radio"},
-    { sound: radioB, name: "2.Ember To Remember Final ", Id: 6 , type : "radio"},
-    { sound: radioC, name: "3.GOTV Christmas Max Radio", Id: 7 , type : "radio"},
-    { sound: radioD, name: "4.GOtv Kids April May Radio", Id: 8, type : "radio" },
-    { sound: radioE, name: "5.Gotv Nigerian Idol Radio", Id: 9 , type : "radio"},
+    { sound: radioA, name: "1. Arla Dano Pidgin 45 SECS", Id: 5 , type : "radio"},
+    { sound: radioB, name: "2. Ember To Remember Final ", Id: 6 , type : "radio"},
+    { sound: radioC, name: "3. GOTV Christmas Max Radio", Id: 7 , type : "radio"},
+    { sound: radioD, name: "4. GOtv Kids April May Radio", Id: 8, type : "radio" },
+    { sound: radioE, name: "5. Gotv Nigerian Idol Radio", Id: 9 , type : "radio"},
   ],
   music : [
     { sound: radioA, name: "1.TimeFlies", Id: 10, type :"music" },
