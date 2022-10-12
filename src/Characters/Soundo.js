@@ -25,8 +25,14 @@ function Soundo() {
     radio: true,
     music: false,
   });
-  const [playing, setPlaying] = useState();
-  const [source, setSource] = useState("");
+
+  const [source, setSource] = useState(soundObject.radios[0].sound);
+  const [name, setName] = useState(soundObject.radios[1].name);
+  const [activeIcon, setActiveIcon] = useState(play);
+  const [listIndex, setListIndex] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.5);
+  const [ID, setID] = useState(5);
   const playSound = useRef(null);
 
   const animateList = () => {
@@ -47,13 +53,60 @@ function Soundo() {
     transition: "1s  cubic-bezier(0.075, 0.82, 0.165, 1)",
   };
 
-  const listStyle = {
-    backgroundColor:" rgba(212, 212, 212, 0.241)",
+  const playAudio = (id) => {
+    setSource(currentSound[id].sound);
+    setName(currentSound[id].name);
+    setActiveIcon(pause);
+    setPlaying(true);
+    playSound.current.pause();
+    playSound.current.load();
+    playSound.current.play();
+  };
+
+  const nextAudio = () => {
+    if (listIndex < currentSound.length - 1) {
+      setSource(currentSound[listIndex + 1].sound);
+      setName(currentSound[listIndex + 1].name);
+      setID(currentSound[listIndex + 1].Id);
+      setActiveIcon(pause);
+      setPlaying(true);
+      playSound.current.pause();
+      playSound.current.load();
+      playSound.current.play();
+      setListIndex(listIndex + 1);
+    } else {
+      setListIndex(0);
+      playAudio(0);
+      setID(currentSound[0].Id);
+    }
+  };
+
+  const prevAudio = () => {
+    if (listIndex > 0) {
+      setSource(currentSound[listIndex - 1].sound);
+      setName(currentSound[listIndex - 1].name);
+      setID(currentSound[listIndex - 1].Id);
+      setActiveIcon(pause);
+      setPlaying(true);
+      playSound.current.pause();
+      playSound.current.load();
+      playSound.current.play();
+      setListIndex(listIndex - 1);
+    } else {
+      setListIndex(currentSound.length - 1);
+      playAudio(currentSound.length - 1);
+      setID(currentSound[currentSound.length - 1].Id);
+    }
+  };
+
+  const adjustVolume = () => {
+    playSound.current.volume = volume;
   };
 
   useEffect(() => {
-    animateList();
-  }, []);
+    console.log(listIndex);
+    adjustVolume();
+  }, [volume]);
 
   return (
     <div className="soundo__page">
@@ -181,40 +234,85 @@ function Soundo() {
                       </p>
                     </div>
                     <div className="soundo__musicplayer__container__mid">
-                      <div className="soundo__musicplayer__container__mid__buttons">
-                        <img src={previous} alt="previoua" />
+                      <div className="soundo__musicplayer__container__mid__buttons" onMouseEnter={()=>{
+                        gsap.to(".soundo__musicplayer__container__mid__buttons", {
+                          borderRadius : "120px",
+                          delay : .4
+                        })
+                      }} 
+                     onMouseLeave={()=>{
+                        gsap.to(".soundo__musicplayer__container__mid__buttons", {
+                          borderRadius : "10px",
+                          delay : .3
+                        })
+                      }} >
+                        <img
+                          onClick={prevAudio}
+                          src={previous}
+                          alt="previous"
+                        />
                         <img
                           onClick={() => {
-                            playSound.current.pause();
-                            playSound.current.load();
-                            playSound.current.play();
-                            console.log(currentSound[1].sound);
+                            if (playing) {
+                              playSound.current.pause();
+                              setPlaying(false);
+                              setActiveIcon(play);
+                            } else {
+                              setPlaying(true);
+                              setActiveIcon(pause);
+                              playSound.current.pause();
+
+                              playSound.current.play();
+                            }
                           }}
-                          src={play}
+                          src={activeIcon}
                           alt="play"
                         />
                         <audio ref={playSound}>
-                          <source src={currentSound[1].sound} />
+                          <source src={source} />
                         </audio>
 
-                        <img src={next} alt="next" />
+                        <img onClick={nextAudio} src={next} alt="next" />
                       </div>
                     </div>
                     <div className="soundo__musicplayer__container__bottom">
-                      <div className="soundo__nowPlaying">
-                        GOtv - Ember To Remember
-                      </div>
+                      <div className="soundo__nowPlaying">{name}</div>
                       <div className="soundo__volumebar">
-                      <div className="soundo__volumebar__minus">
-                      <img src={minus} alt="" />
-                    </div>
-                      
-                        <div className="soundo__volumebar__level">100</div>
-                          <div className="soundo__volumebar__add">
-                          {" "}
-                          <img src={add} alt="addControl" />
+                        <div className="soundo__volumebar__minus">
+                          <svg  onClick={() => {
+                            if (volume > 0.1) {
+                              setVolume(volume - 0.1);
+                            }
+                          }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#FFFFFF"
+                          >
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M19 13H5v-2h14v2z" />
+                          </svg>
+                          
                         </div>
-                       
+
+                        <div className="soundo__volumebar__level">
+                          {(volume * 100).toFixed(0)}
+                        </div>
+                        <div className="soundo__volumebar__add">
+                          {" "}
+                          <svg
+                            onClick={() => {
+                              if (volume < 1) {
+                                setVolume(volume + 0.1);
+                              }
+                            }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#FFFFFF"
+                          >
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -223,17 +321,28 @@ function Soundo() {
                   <ul className="soundo__music__list_items">
                     {currentSound.map((item, id) => {
                       return (
-                        <li className="soundo__music__list_item" key={id} onClick ={()=>{
-                          console.log(id)
-                        }}>
+                        <li
+                          className="soundo__music__list_item"
+                          key={id}
+                          onClick={() => {
+                            playAudio(id);
+                            setID(item.Id);
+                            setListIndex(id);
+                          }}
+                        >
                           <div className="soundo__music__list_item__displayPic">
                             <img src={Medal} alt="GOTV" />
                           </div>
                           <div className="soundo__music__list_item__soundDetails">
                             <p className="soundlabel">{item.name}</p>
                             <br></br>
-                            <p className="soundtype">Radio Commercial</p>
+                            <p className="soundtype">{item.type}</p>
                           </div>
+                          {playing && ID === item.Id && (
+                            <div className="soundo__music__list_item__equalizer">
+                              <img src={equalizer} alt="" />
+                            </div>
+                          )}
                         </li>
                       );
                     })}
