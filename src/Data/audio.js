@@ -20,17 +20,17 @@ export const soundObject = {
   ],
 
   radios: [
-    { radio: radioA, name: "1.Arla Dano Pidgin 45 SECS", Id: 1 },
-    { radio: radioB, name: "2.Ember To Remember Final ", Id: 2 },
-    { radio: radioC, name: "3.GOTV Christmas Max Radio", Id: 3 },
-    { radio: radioD, name: "4.GOtv Kids April May Radio", Id: 4 },
-    { radio: radioE, name: "5.Gotv Nigerian Idol Radio", Id: 5 },
+    { sound: radioA, name: "1.Arla Dano Pidgin 45 SECS", Id: 1 },
+    { sound: radioB, name: "2.Ember To Remember Final ", Id: 2 },
+    { sound: radioC, name: "3.GOTV Christmas Max Radio", Id: 3 },
+    { sound: radioD, name: "4.GOtv Kids April May Radio", Id: 4 },
+    { sound: radioE, name: "5.Gotv Nigerian Idol Radio", Id: 5 },
   ],
-  sounds : [
-    { radio: radioA, name: "1.TimeFlies", Id: 1 },
-    { radio: radioB, name: "2.Alabama ", Id: 2 },
-    { radio: radioC, name: "3.GOTV Christmas Max Radio", Id: 3 },
-    { radio: radioD, name: "4.GOtv Kids April May Radio", Id: 4 },
-    { radio: radioE, name: "5.Gotv Nigerian Idol Radio", Id: 5 },
+  music : [
+    { sound: radioA, name: "1.TimeFlies", Id: 1 },
+    { sound: radioB, name: "2.Alabama ", Id: 2 },
+    { sound: radioC, name: "3.GOTV Christmas Max Radio", Id: 3 },
+    { sound: radioD, name: "4.GOtv Kids April May Radio", Id: 4 },
+    
   ],
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./soundo.css";
 import soundoArt1 from "../Images/Saly-24.png";
 import soundoArt2 from "../Images/Saly-37.png";
@@ -12,14 +12,48 @@ import play from "../Svg/play.svg";
 import previous from "../Svg/skip_previous.svg";
 import next from "../Svg/skip_next.svg";
 import { soundObject } from "../Data/audio.js";
+import { useRef } from "react";
+import add from "../Svg/add.svg";
+import minus from "../Svg/minus.svg";
+import equalizer from "../Svg/equalizer.svg";
+import gsap from "gsap";
 
 function Soundo() {
   const [currentSound, setCurrentSound] = useState(soundObject.radios);
-  const [mode, setMode] = useState({ jingle : true, radio : false, music : false, tpye : "radio" });
+  const [mode, setMode] = useState({
+    jingle: false,
+    radio: true,
+    music: false,
+  });
+  const [playing, setPlaying] = useState();
+  const [source, setSource] = useState("");
+  const playSound = useRef(null);
 
-  const modeSet = {
-    
-  }
+  const animateList = () => {
+    gsap.fromTo(
+      ".soundo__music__list_item",
+      {
+        x: "100%",
+      },
+      { x: 0, stagger: 0.1 }
+    );
+  };
+
+  const modeStyle = {
+    fontWeight: 700,
+    color: "var(--soundo-pink-dark)",
+    transform: "scale(1.8)",
+    transformOrigin: "center",
+    transition: "1s  cubic-bezier(0.075, 0.82, 0.165, 1)",
+  };
+
+  const listStyle = {
+    backgroundColor:" rgba(212, 212, 212, 0.241)",
+  };
+
+  useEffect(() => {
+    animateList();
+  }, []);
 
   return (
     <div className="soundo__page">
@@ -114,40 +148,95 @@ function Soundo() {
                 <div className="soundo__musicplayer">
                   <div className="soundo__musicplayer__container">
                     <div className="soundo__musicplayer__container__top">
-                      <p onClick={()=>setCurrentSound(soundObject.jingles)}>JINGLES</p> 
-                      <p onClick={()=>setCurrentSound(soundObject.radios)}> RADIO </p> 
-                      <p onClick={()=>setCurrentSound(soundObject.sounds)}>MUSIC</p>
+                      <p
+                        style={mode.jingle ? modeStyle : {}}
+                        onClick={() => {
+                          setCurrentSound(soundObject.jingles);
+                          setMode({ radio: false, music: false, jingle: true });
+                          animateList();
+                        }}
+                      >
+                        JINGLES
+                      </p>
+                      <p
+                        style={mode.radio ? modeStyle : {}}
+                        onClick={() => {
+                          setCurrentSound(soundObject.radios);
+                          setMode({ jingle: false, music: false, radio: true });
+                          animateList();
+                        }}
+                      >
+                        {" "}
+                        RADIO{" "}
+                      </p>
+                      <p
+                        style={mode.music ? modeStyle : {}}
+                        onClick={() => {
+                          setCurrentSound(soundObject.music);
+                          setMode({ radio: false, jingle: false, music: true });
+                          animateList();
+                        }}
+                      >
+                        MUSIC
+                      </p>
                     </div>
                     <div className="soundo__musicplayer__container__mid">
                       <div className="soundo__musicplayer__container__mid__buttons">
                         <img src={previous} alt="previoua" />
-                        <img src={play} alt="play" />
+                        <img
+                          onClick={() => {
+                            playSound.current.pause();
+                            playSound.current.load();
+                            playSound.current.play();
+                            console.log(currentSound[1].sound);
+                          }}
+                          src={play}
+                          alt="play"
+                        />
+                        <audio ref={playSound}>
+                          <source src={currentSound[1].sound} />
+                        </audio>
+
                         <img src={next} alt="next" />
                       </div>
                     </div>
                     <div className="soundo__musicplayer__container__bottom">
-                      GOtv, Ember To Remember
+                      <div className="soundo__nowPlaying">
+                        GOtv - Ember To Remember
+                      </div>
+                      <div className="soundo__volumebar">
+                      <div className="soundo__volumebar__minus">
+                      <img src={minus} alt="" />
+                    </div>
+                      
+                        <div className="soundo__volumebar__level">100</div>
+                          <div className="soundo__volumebar__add">
+                          {" "}
+                          <img src={add} alt="addControl" />
+                        </div>
+                       
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="soundo__music__list">
                   <ul className="soundo__music__list_items">
-                   {currentSound.map((item)=>{
-                    return( <li className="soundo__music__list_item">
-                    <div className="soundo__music__list_item__displayPic">
-                      <img src={Medal} alt="GOTV" />
-                    </div>
-                    <div className="soundo__music__list_item__soundDetails">
-                      <p className="soundlabel">
-                        {item.name}
-                      </p>
-                      <br></br>
-                       <p className="soundtype">Radio Commercial</p> 
-                    </div>
-                  </li>)
-                   })}
-                   
-                  
+                    {currentSound.map((item, id) => {
+                      return (
+                        <li className="soundo__music__list_item" key={id} onClick ={()=>{
+                          console.log(id)
+                        }}>
+                          <div className="soundo__music__list_item__displayPic">
+                            <img src={Medal} alt="GOTV" />
+                          </div>
+                          <div className="soundo__music__list_item__soundDetails">
+                            <p className="soundlabel">{item.name}</p>
+                            <br></br>
+                            <p className="soundtype">Radio Commercial</p>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
