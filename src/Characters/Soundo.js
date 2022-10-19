@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./soundo.css";
-import soundoArt1 from "../Images/Saly-24.png";
+import soundoArt1 from "../Images/Saly-13 (3).png";
 import soundoArt2 from "../Images/Saly-37.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
-
 
 import pause from "../Svg/pause.svg";
 import play from "../Svg/play.svg";
@@ -102,6 +101,27 @@ function Soundo() {
     playSound.current.volume = volume;
   };
 
+  const nowPlayingAnim = () => [
+    gsap.fromTo(
+      ".soundo__nowPlaying",
+      {
+        autoAlpha: 0,
+        color: "white",
+      },
+      {
+        autoAlpha: 1,
+        duration: 1,
+        delay: 0.2,
+        color: "var(--soundo-pink-dark)",
+        ease: 2,
+      }
+    ),
+  ];
+
+  const placebo = ()=>{
+
+  }
+
   useEffect(() => {
     console.log(listIndex);
     adjustVolume();
@@ -109,15 +129,6 @@ function Soundo() {
 
   return (
     <div className="soundo__page">
-      <div className="soundo__leftpanel">
-        <div className="soundoArt1 ">
-          <img src={soundoArt1} alt="Soundo_Image" />
-        </div>
-        <div className="soundoArt2">
-          <img src={soundoArt2} alt="Soundo_Image" />
-        </div>
-      </div>
-
       <div className="soundo__rightpanel">
         <div className="soundo__rightpanel__body">
           <section className="soundo__rightpanel__body__top">
@@ -224,9 +235,9 @@ function Soundo() {
                       <p
                         style={mode.music ? modeStyle : {}}
                         onClick={() => {
-                          setCurrentSound(soundObject.music);
+                          setCurrentSound(soundObject.music);                          
                           setMode({ radio: false, jingle: false, music: true });
-                          animateList();
+                         animateList();
                         }}
                       >
                         MUSIC
@@ -341,6 +352,7 @@ function Soundo() {
                             playAudio(id);
                             setID(item.Id);
                             setListIndex(id);
+                            nowPlayingAnim();
                           }}
                         >
                           <div className="soundo__music__list_item__displayPic">

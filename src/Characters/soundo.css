@@ -1,30 +1,21 @@
 .soundo__page {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   display: flex;
   font-size: 1rem;
+  width: 100vw;
 }
 
 .soundo__page ::-webkit-scrollbar-thumb {
   background-color: var(--soundo-pink-dark);
   border-radius: 10px;
-  border: 3px solid white;
+  border: 5px solid rgb(0, 0, 0);
 }
 
 .soundo__page ::-webkit-scrollbar {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.soundo__leftpanel {
-  flex: 0 0 50%;
-  background-color: rgb(15, 14, 15);
-  max-height: 100vh;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
+
 
 .soundoArt1 {
   background-color: rgb(0, 0, 0);
@@ -75,8 +66,9 @@
   }
 }
 .soundo__rightpanel {
-  flex: 5;
+  flex: 1;
   display: flex;
+  width: 100%;
   height: 100vh;
   align-items: center;
   flex-direction: column;
@@ -87,8 +79,8 @@
 
 .soundo__rightpanel__body {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  align-items: flex-start;
+  flex-direction: row;
   width: 100%;
   flex-shrink: 0;
 }
@@ -98,13 +90,14 @@
 .soundo__rightpanel__body__top {
   width: 100%;
   display: flex;
-  max-width: 1200px;
+  max-width: 50vw;
   min-height: 100vh;
   align-items: center;
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   /* margin-bottom: 4rem; */
   justify-content: center;
   background-color:black;
+  flex: 4;
 }
 
 .soundo__rightpanel__body__top__container {
@@ -112,7 +105,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   height: 100%;
   justify-content: flex-end;
 
@@ -139,7 +132,7 @@
 .soundoTag {
   font-family: "Calibri";
   color: white;
-  font-size: calc(5.7 * var(--soundo-font));
+  font-size: calc(4.6 * var(--soundo-font));
   font-weight: 400;
   letter-spacing: -5px;
 }
@@ -181,8 +174,8 @@
 
 .soundo__name {
   color: white;
-  font-size: calc(7.5 * var(--soundo-font));
-  line-height: calc(8 * var(--soundo-font));
+  font-size: calc(6.0 * var(--soundo-font));
+  line-height: calc(6.5 * var(--soundo-font));
   font-weight: 700;
   position: relative;
 }
@@ -220,9 +213,8 @@
   grid-row: 2/3;
   grid-column: 1/3;
   overflow-wrap: break-word;
-
   font-family: "Calibri";
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   line-height: 3.7rem;
   font-weight: 300;
 }
@@ -257,7 +249,7 @@
 
 .soundo__contact {
   display: flex;
-
+font-size: calc(1.6 * var(--soundo-font)); ;
   align-items: flex-end;
   width: 100%;
 }
@@ -290,7 +282,7 @@
   display: flex;
   min-height: 100vh;
   padding: 4rem 4rem 4rem 4rem;
-  max-width: 1200px;
+  max-width: 50vw;
   font-family: "Roboto";
   flex-shrink: 0;
   border-bottom-left-radius: 0px;
@@ -312,7 +304,7 @@
   height: 100%;
 }
 .soundo__rightpanel__body__mid__container__content {
-  min-width: 400px;
+  min-width: 507px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -346,7 +338,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(3.3 * var(--soundo-font));
+  font-size: calc(2.7 * var(--soundo-font));
   font-weight: 700;
   font-family: "Inter";
   width: 100%;
@@ -356,6 +348,9 @@
 .soundo__musicplayer__container__top > p {
   cursor: pointer;
   margin: 0 50px;
+}
+.soundo__musicplayer__container__mid {
+  width: 100%;
 }
 
 .soundo__musicplayer__container__mid__buttons {
@@ -369,7 +364,7 @@
   margin-bottom: 20px;
 }
 .soundo__musicplayer__container__mid__buttons > img {
-  width: 20%;
+  width: 11%;
 }
 
 .soundo__musicplayer__container__bottom {
@@ -385,6 +380,7 @@
 
 .soundo__nowPlaying{
   flex: 5;
+  font-size:  calc(2 * var(--soundo-font));
 }
 
 .soundo__volumebar{
@@ -461,7 +457,7 @@ background-color: aqua;
   display: contents;
 }
 .soundo__music__list_item__displayPic > img {
-  width: 10%;
+  width: 6%;
   margin-right: 20px;
 }
 
@@ -472,13 +468,13 @@ background-color: aqua;
 
 .soundlabel {
   position: relative;
-  font-size: calc(2 * var(--soundo-font));
+  font-size: calc(1.6 * var(--soundo-font));
   font-weight: 400;
   font-family: "Inter";
 }
 
 .soundtype {
-  font-size: calc(2 * var(--soundo-font));
+  font-size: calc(1.6 * var(--soundo-font));
   font-weight: 200;
   word-break: keep-all;
   display: flex;

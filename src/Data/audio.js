@@ -31,6 +31,7 @@ export const soundObject = {
     { sound: radioB, name: "2.Alabama ", Id: 11 , type :"music"},
     { sound: radioC, name: "3.GOTV Christmas Max Radio", Id: 12 , type :"music"},
     { sound: radioD, name: "4.GOtv Kids April May Radio", Id: 13 , type :"music"},
+    { sound: radioE, name: "4.GOtv Kiddososo", Id: 14 , type :"music"},
     
   ],
 };

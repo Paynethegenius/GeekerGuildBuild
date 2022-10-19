@@ -1,0 +1,91 @@
+.charsel__intro {
+  width: 100%;
+  height: calc(100vh - 4px);
+  display: flex;
+  position: absolute;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.918);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.charsel__intro__welcome {
+  background-color: white;
+  opacity: 1;
+  width: 20%;
+  border-radius: 20px;
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: white solid 1px;
+  min-height: 300px;
+}
+
+.charsel__intro__muteAudio {
+  position: absolute;
+  bottom: -30%;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  object-fit: contain;
+  justify-content: center;
+}
+
+.charsel__intro__muteAudio > img {
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 10px;
+  padding: 5px;
+  width: 10%;
+}
+
+.charsel__intro__muteAudio > img:hover {
+  background-color: rgba(255, 255, 255, 0.192);
+}
+
+.charsel__intro__welcome__text {
+  width: 100%;
+  flex: 9;
+  padding: 10px;
+  background-color: #031a8b;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: right;
+}
+
+.charsel__intro__welcome__text__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+}
+.charsel__intro__welcome__text__bar__div1 {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+.charsel__intro__welcome__text__bar__div2 {
+  padding: 2px 10px;
+  flex: 9;
+}
+
+.charsel__intro__welcome__close {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--yellow);
+  padding: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.charsel__intro__welcome__close > button {
+  padding: 2px 10px;
+  font-size: 1.2rem;
+  border-radius: 20px;
+  border: none;
+}

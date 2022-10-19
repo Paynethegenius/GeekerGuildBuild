@@ -2,7 +2,9 @@
   background-color: white;
   display: flex;
   font-size: 1rem;
-  
+  position: absolute;
+  top: 0px;
+  z-index: 100;
 }
 
 

@@ -6,7 +6,6 @@ import weboArt3 from "../Images/Saly-38.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
-import lineSVG from "../Images/Line.svg";
 import linePng from "../Images/Line.png";
 import whatsappIcon from "../Images/whatsapp.png";
 import amazonIcon from "../Images/amazon.png";
