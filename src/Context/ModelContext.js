@@ -23,6 +23,7 @@ function ModelContextProvider(props) {
     Soundo: "",
     Teacho: "",
   });
+  const [option, setOption] = useState(5);
 
 
   const clickRef = useRef(null);
@@ -55,6 +56,7 @@ function ModelContextProvider(props) {
         setActiveCharacter,
         soundSelectButton,
         soundClickButton,
+        option, setOption,
       }}
     ><div>
     <audio ref={clickRef}>

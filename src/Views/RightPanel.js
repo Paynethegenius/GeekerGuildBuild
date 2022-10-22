@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ModelContext } from "../Context/ModelContext";
 
 import Threescene from "../threejs/Threescene";
+import ThreesceneSoundo from "../threejs/ThreesceneSoundo";
 import "../Views/rightpanel.css";
 
 function RightPanel({ leftPanelDetails }) {
@@ -14,6 +15,7 @@ function RightPanel({ leftPanelDetails }) {
     setCloseContentoModal,
     soundSelectButton,
     soundClickButton,
+
     
   } = useContext(ModelContext);
 
@@ -22,7 +24,8 @@ function RightPanel({ leftPanelDetails }) {
       <div className="rightpanelbodyheader allheaders"></div>
       <div className="righpanel__canva">
         {" "}
-        <Threescene leftPanelDetails={leftPanelDetails} />
+        {activeCharacter.Webo === "active" && <Threescene leftPanelDetails={leftPanelDetails} />}
+        {activeCharacter.Soundo === "active" &&  <ThreesceneSoundo leftPanelDetails={leftPanelDetails} />}
       </div>
 
       <div className="rightpanelbodyfooter allfooters">
@@ -38,7 +41,7 @@ function RightPanel({ leftPanelDetails }) {
                  
                 }
                 if (activeCharacter.Contento === "active") {
-                  setCloseTeachoModal(false)
+                  setCloseContentoModal(false)
                   soundClickButton();
                 
                 }
@@ -48,7 +51,8 @@ function RightPanel({ leftPanelDetails }) {
                 }
                 
                 if (activeCharacter.Teacho === "active"){
-                  setCloseContentoModal(false)
+                  setCloseTeachoModal(false)
+                  
                   soundClickButton();
                 
               }}

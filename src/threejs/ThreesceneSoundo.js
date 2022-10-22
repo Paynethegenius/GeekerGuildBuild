@@ -10,8 +10,6 @@ import sceneModel from "../Model/contentoScene.glb";
 import { ModelContext } from "../Context/ModelContext";
 import { cameraParam, setCamera } from "../threejs/camera.js";
 
-import { dirLight, hemiLight } from "./lights";
-
 function Threescene({ leftPanelDetails }) {
   // const [datGui, setDatGui] = useState(new dat.GUI());
 
@@ -72,54 +70,6 @@ function Threescene({ leftPanelDetails }) {
 
           //Update scene
           scene.add(root);
-
-          mixer = new THREE.AnimationMixer(root);
-
-      const animations = gltf.animations;
-
-      actionMap = new Map();
-
-      for (let i = 0; i < animations.length; i++) {
-        actionMap.set(animations[i].name, [
-          new THREE.AnimationClip(
-            animations[i].name,
-            animations[i].duration,
-            animations[i].tracks
-          ),
-        ]);
-
-        //animOptionsByName[animations[i].name] = animations[i].name;
-      }
-
-    
-
-      const HoverAction = mixer.clipAction(
-        actionMap.get("HoverAction|CINEMA_4D_Main|Layer0")[0]
-      );
-      const BladesCase = mixer.clipAction(
-        actionMap.get("BladesCaseSmooth|CINEMA_4D_Main|Layer0")[0]
-      );
-      const Contento = mixer.clipAction(
-        actionMap.get("Armature|mixamo.com|Layer0")[0]
-      );
-      const Tweeto = mixer.clipAction(
-        actionMap.get("Pivot|CINEMA_4D_Main|Layer0")[0]
-      );
-
-      Tweeto.timeScale = 4;
-      Contento.timeScale = 0.5;
-
-    
-      // // actionWalk.setEffectiveWeight(1);
-
-      HoverAction.play();
-      BladesCase.play();
-
-      Contento.setLoop(THREE.LoopOnce);
-      Contento.setDuration(6);
-      Contento.clampWhenFinished = true;
-      Contento.play();
-      Tweeto.play();
         },
 
         (e) => {
@@ -172,8 +122,16 @@ function Threescene({ leftPanelDetails }) {
     });
 
     //Lights
-   
-    scene.add(hemiLight);  
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.4);
+    hemiLight.color.setHSL(0.6, 1, 1);
+    hemiLight.groundColor.setHSL(0.095, 1, 0.75);
+    hemiLight.position.set(0, 50, 0);
+    scene.add(hemiLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.1);
+    dirLight.color.setHSL(0.1, 1, 0.95);
+    dirLight.position.set(1, 1.75, 1);
+    dirLight.position.multiplyScalar(30);
     scene.add(dirLight);
 
     //Create Particles

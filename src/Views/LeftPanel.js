@@ -14,7 +14,7 @@ import sceneModel from "../Model/contentoScene.glb";
 import sceneModel2 from "../Model/contentoScene2.glb";
 import fox from "../Model/Fox.glb";
 function LeftPanel() {
-  const { setModel, activeCharacter, setActiveCharacter,  } =
+  const { setModel, activeCharacter, setActiveCharacter, setOption } =
     useContext(ModelContext);
 
   const [character, setCharacter] = useState(Webo);
@@ -97,7 +97,7 @@ function LeftPanel() {
             <div className="leftpanelbody__content__selection__Avatars">
               <img
                 onClick={() => {
-                  setModel({ object: sceneModel });
+                  setOption(6);
                   soundClickButton(Webo);
                   setCharacter(Webo);
                   animate(Webo);
@@ -117,7 +117,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
-                  setModel({ object: fox });
+                  setOption(7);
                   soundClickButton(Contento);
                   setCharacter(Contento);
                   animate(Contento);
@@ -137,6 +137,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
+                  setOption(4);
                   soundClickButton(Soundo);
                   setCharacter(Soundo);
                   animate(Soundo);
@@ -156,6 +157,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
+                  setOption(9);
                   soundClickButton(Teacho);
                   setCharacter(Teacho);
 
