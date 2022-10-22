@@ -1,10 +1,3 @@
-.soundo__page {
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  font-size: 1rem;
-  width: 100vw;
-}
-
 .soundo__page ::-webkit-scrollbar-thumb {
   background-color: var(--soundo-pink-dark);
   border-radius: 10px;
@@ -14,6 +7,43 @@
 .soundo__page ::-webkit-scrollbar {
   background-color: rgba(255, 255, 255, 0);
 }
+
+
+.soundo__page {
+  background-color: rgba(0, 0, 0, 0.769);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: absolute;
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+ 
+}
+
+.soundo__page__container{
+  background-color: white;
+  display: flex;
+  font-size: 1rem;
+  height: var(--modal-height);
+  width: var(--modal-width);
+  position: relative;
+  opacity: 1;
+}
+
+.soundo__page__container__close{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  }
+  .soundo__page__container__close>svg:hover{
+  transform: scale(1.2);
+  fill: #ffb800;
+  }
+
+
 
 
 
@@ -69,11 +99,11 @@
   flex: 1;
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   align-items: center;
   flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
   position: relative;
 }
 
@@ -91,7 +121,7 @@
   width: 100%;
   display: flex;
   max-width: 50vw;
-  min-height: 100vh;
+  min-height: 90vh;
   align-items: center;
   /* flex-shrink: 0; */
   /* margin-bottom: 4rem; */
@@ -280,7 +310,7 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   width: 100%;
   background-color: rgb(0, 0, 0);
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 4rem 4rem 4rem 4rem;
   max-width: 50vw;
   font-family: "Roboto";
@@ -291,10 +321,12 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   background-size: contain;
   background-position: center;
   user-select: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .soundo__rightpanel__body__mid__container {
-  margin: auto;
+  /* margin: auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -306,7 +338,7 @@ font-size: calc(1.6 * var(--soundo-font)); ;
 .soundo__rightpanel__body__mid__container__content {
   min-width: 507px;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -348,6 +380,11 @@ font-size: calc(1.6 * var(--soundo-font)); ;
 .soundo__musicplayer__container__top > p {
   cursor: pointer;
   margin: 0 50px;
+}
+.soundo__musicplayer__container__top > p:hover {
+ background-color: rgba(85, 85, 85, 0.374);
+ border-radius: 20px;
+ padding: 0px 10px;
 }
 .soundo__musicplayer__container__mid {
   width: 100%;

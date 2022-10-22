@@ -38,13 +38,18 @@
   --soundo-black : #000000;
 
   /*CONTENTO*/
-  --contento-color-primary : #ffb800;
+  --contento-color-primary : #00ffe2;
   --contento-color-secondary: #ffffff;
   --contento-color-tertiary : #434343;
   --contento-font: 1rem;
   --contento-font-main : "Roboto";
   --contento-font-sub : "Calibri";
   --contento-color-dark : #000000;
+
+  /*MODAL GLOBAL*/
+
+  --modal-width : 95%;
+  --modal-height : 90%
 
   
 }

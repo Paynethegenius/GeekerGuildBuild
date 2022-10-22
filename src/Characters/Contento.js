@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState, useEffect, useRef,useContext } from "react";
 import "../Characters/contento.css";
 
 import { videoObject } from "../Data/video";
@@ -9,9 +9,19 @@ import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
 import Thumbnail from "../SubComponents/Thumbnail";
+import { ModelContext } from "../Context/ModelContext";
 
+function Contento({ setCloseModal }) {
 
-function Contento() {
+  
+  const {
+    
+    soundSelectButton,
+    soundClickButton,
+    
+  } = useContext(ModelContext);
+
+  
   let clickStyle = {
     Edits: {
       color: "var(--contento-color-primary)",
@@ -82,6 +92,28 @@ function Contento() {
 
   return (
     <div className="contento-page">
+      <div
+        className="contento-page__container__close"
+        onClick={() => {
+          setCloseModal(true);
+          soundClickButton()
+        }}
+
+        onMouseOver={()=>{
+          soundSelectButton()
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="48px"
+          viewBox="0 0 24 24"
+          width="48px"
+          fill="#00ffe2"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+        </svg>
+      </div>
       <div className="contento-page__container">
         <div className="contento__top__container">
           <div className="contento__left">
@@ -157,9 +189,11 @@ function Contento() {
                               clickStyle.color),
                           });
                           setCategory(videoObject.MotionGraphics);
-                          setVideo(videoObject.MotionGraphics[0].video)
-                          setPlaying(false)
-                          changeDescription((`${videoObject.MotionGraphics[0].category} : ${videoObject.MotionGraphics[0].name} ` ))
+                          setVideo(videoObject.MotionGraphics[0].video);
+                          setPlaying(false);
+                          changeDescription(
+                            `${videoObject.MotionGraphics[0].category} : ${videoObject.MotionGraphics[0].name} `
+                          );
                         }}
                       >
                         Motion Graphics
@@ -174,9 +208,11 @@ function Contento() {
                             ...(clickStyle.Edits.color = clickStyle.color),
                           });
                           setCategory(videoObject.Edits);
-                          setVideo(videoObject.Edits[0].video)
-                          setPlaying(false)
-                          changeDescription((`${videoObject.Edits[0].category} : ${videoObject.Edits[0].name} ` ))
+                          setVideo(videoObject.Edits[0].video);
+                          setPlaying(false);
+                          changeDescription(
+                            `${videoObject.Edits[0].category} : ${videoObject.Edits[0].name} `
+                          );
                         }}
                       >
                         Edits
@@ -190,9 +226,11 @@ function Contento() {
                             ...(clickStyle.Shorts.color = clickStyle.color),
                           });
                           setCategory(videoObject.Shorts);
-                          setVideo(videoObject.Shorts[0].video)
-                          setPlaying(false)
-                          changeDescription((`${videoObject.Shorts[0].category} : ${videoObject.Shorts[0].name} ` ))
+                          setVideo(videoObject.Shorts[0].video);
+                          setPlaying(false);
+                          changeDescription(
+                            `${videoObject.Shorts[0].category} : ${videoObject.Shorts[0].name} `
+                          );
                         }}
                       >
                         Shorts
@@ -207,9 +245,11 @@ function Contento() {
                               clickStyle.color),
                           });
                           setCategory(videoObject.SocialMedia);
-                          setVideo(videoObject.SocialMedia[0].video)
-                          setPlaying(false)
-                          changeDescription((`${videoObject.SocialMedia[0].category} : ${videoObject.SocialMedia[0].name} ` ))
+                          setVideo(videoObject.SocialMedia[0].video);
+                          setPlaying(false);
+                          changeDescription(
+                            `${videoObject.SocialMedia[0].category} : ${videoObject.SocialMedia[0].name} `
+                          );
                         }}
                       >
                         Social Media
@@ -235,7 +275,7 @@ function Contento() {
                   alt="cover"
                 />
                 <video
-                  height={672}
+                  height={550}
                   src={video}
                   ref={videoRef}
                   onCanPlay={() => {
@@ -315,7 +355,7 @@ function Contento() {
               {category.map((item) => {
                 return (
                   <Thumbnail
-                  category ={category}
+                    category={category}
                     details={item}
                     changeDescription={changeDescription}
                     changeVideo={changeVideo}

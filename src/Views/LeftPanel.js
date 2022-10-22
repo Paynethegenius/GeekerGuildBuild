@@ -8,32 +8,22 @@ import CharExperience from "../SubComponents/CharExperience.js";
 import TechnicalDetails from "../SubComponents/TechnicalDetails.js";
 import avatar from "../Images/Avatar.png";
 import clickAudio from "../Audio/click.mp3";
-import selectAudio from "../Audio/select.mp3";import {ModelContext} from "../Context/ModelContext";
+import selectAudio from "../Audio/select.mp3";
+import { ModelContext } from "../Context/ModelContext";
 import sceneModel from "../Model/contentoScene.glb";
 import sceneModel2 from "../Model/contentoScene2.glb";
-
-
+import fox from "../Model/Fox.glb";
 function LeftPanel() {
-  const {setModel} = useContext(ModelContext)
-
- 
-
-
-
+  const { setModel, activeCharacter, setActiveCharacter,  } =
+    useContext(ModelContext);
 
   const [character, setCharacter] = useState(Webo);
-  const [activeCharacter, setActiveCharacter] = useState({
-    Webo: "active",
-    Contento: "",
-    Soundo: "",
-    Teacho: "",
-  });
 
   const clickRef = useRef(null);
   const selectRef = useRef(null);
-  
+
   useEffect(() => {
-    animate();    
+    animate();
     soundSelectButton();
   }, []);
 
@@ -45,7 +35,7 @@ function LeftPanel() {
       clickRef.current.play();
     }
   };
-  
+
   const animate = (char) => {
     if (char !== character) {
       gsap.fromTo(".svgLevel", { duration: 1, scaleX: 0 }, { scaleX: 1 });
@@ -65,12 +55,9 @@ function LeftPanel() {
         {
           duration: 2,
           autoAlpha: 0,
-          
         },
         {
           autoAlpha: 1,
-          
-          
         }
       );
     }
@@ -110,7 +97,7 @@ function LeftPanel() {
             <div className="leftpanelbody__content__selection__Avatars">
               <img
                 onClick={() => {
-                  
+                  setModel({ object: sceneModel });
                   soundClickButton(Webo);
                   setCharacter(Webo);
                   animate(Webo);
@@ -130,7 +117,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
-                  setModel({object :sceneModel2})
+                  setModel({ object: fox });
                   soundClickButton(Contento);
                   setCharacter(Contento);
                   animate(Contento);
@@ -193,7 +180,6 @@ function LeftPanel() {
               <audio ref={selectRef}>
                 <source src={selectAudio}></source>
               </audio>
-             
             </div>
           </div>
         </div>

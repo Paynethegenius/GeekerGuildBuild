@@ -6,16 +6,22 @@ import * as dat from "dat.gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-import {ModelContext} from "../Context/ModelContext";
+import { ModelContext } from "../Context/ModelContext";
 
 function Threescene({ leftPanelDetails }) {
   const [datGui, setDatGui] = useState(new dat.GUI());
   const [screenSmall, setScreenSmall] = useState(false);
-  const {model} = useContext(ModelContext)
+  const { model } = useContext(ModelContext);
 
-  console.log(model)
+  console.log(model);
 
+  // const loadModel = (scene,object)=>{
+  // scene.remove(object)
+  // }
 
+  // useEffect(()=>{
+  // loadModel()
+  // }, model)
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -23,8 +29,6 @@ function Threescene({ leftPanelDetails }) {
     // Canvas
 
     const canvas = document.getElementById("myThreeJSCanvas");
-
-  
 
     // Debug
 
@@ -70,6 +74,34 @@ function Threescene({ leftPanelDetails }) {
       leftPanelDetails.current.clientHeight
     );
 
+    function loadscene(path, scene) {
+   
+
+      
+      loader.load(path, (gltf) => {
+          const root = gltf.scene;
+
+          root.traverse((child) => {
+            child.frustumCulled = false;
+           
+          });
+          camera.lookAt(root.position);
+
+          root.scale.set(2.8, 2.8, 2.8);
+          root.position.set(0, -27, 0);
+          root.rotateY(125);
+
+          camera.lookAt(root.position);
+          camera.position.x = parameters.positionX;
+          camera.position.y = parameters.positionY;
+
+          scene.add(gltf.scene);
+
+          console.log(scene)
+        }
+      );
+    }
+
     window.addEventListener("resize", (event) => {
       //Update Screen Size on resize
 
@@ -85,8 +117,6 @@ function Threescene({ leftPanelDetails }) {
         camera.aspect = sizes.width / sizes.height;
         camera.updateProjectionMatrix();
         renderer.setSize(sizes.width, sizes.height);
-
-       
       }
     });
 
@@ -155,74 +185,7 @@ function Threescene({ leftPanelDetails }) {
     scene.add(points);
 
     // Load Models
-
-    loader.load(model.object, (gltf) => {
-      const root = gltf.scene;
-
-      root.traverse((child) => {
-        child.frustumCulled = false;
-      });
-      camera.lookAt(root.position);
-
-      root.scale.set(2.8, 2.8, 2.8);
-      root.position.set(0, -27, 0);
-      root.rotateY(125);
-
-
-      camera.lookAt(root.position);
-      camera.position.x = parameters.positionX;
-      camera.position.y = parameters.positionY;
-
-      mixer = new THREE.AnimationMixer(root);
-
-      const animations = gltf.animations;
-
-      actionMap = new Map();
-
-      for (let i = 0; i < animations.length; i++) {
-        actionMap.set(animations[i].name, [
-          new THREE.AnimationClip(
-            animations[i].name,
-            animations[i].duration,
-            animations[i].tracks
-          ),
-        ]);
-
-        //animOptionsByName[animations[i].name] = animations[i].name;
-      }
-
-    
-
-      const HoverAction = mixer.clipAction(
-        actionMap.get("HoverAction|CINEMA_4D_Main|Layer0")[0]
-      );
-      const BladesCase = mixer.clipAction(
-        actionMap.get("BladesCaseSmooth|CINEMA_4D_Main|Layer0")[0]
-      );
-      const Contento = mixer.clipAction(
-        actionMap.get("Armature|mixamo.com|Layer0")[0]
-      );
-      const Tweeto = mixer.clipAction(
-        actionMap.get("Pivot|CINEMA_4D_Main|Layer0")[0]
-      );
-
-      Tweeto.timeScale = 4;
-      Contento.timeScale = 0.5;
-
-    
-      // // actionWalk.setEffectiveWeight(1);
-
-      HoverAction.play();
-      BladesCase.play();
-
-      Contento.setLoop(THREE.LoopOnce);
-      Contento.setDuration(6);
-      Contento.clampWhenFinished = true;
-      Contento.play();
-      Tweeto.play();
-
-      scene.add(gltf.scene);
-    });
+    loadscene(model.object,scene)
 
     if (datGui) {
       datGui.add(parameters, "positionX", -20, 20, 1).onChange(() => {
@@ -239,9 +202,7 @@ function Threescene({ leftPanelDetails }) {
       });
 
       datGui.addColor(parameters, "color").onChange((e) => {
-        
         scene.background.set(e);
-     
       });
     }
 
@@ -261,13 +222,13 @@ function Threescene({ leftPanelDetails }) {
       }
 
       orbit.update();
-
+ 
       renderer.render(scene, camera);
       window.requestAnimationFrame(tick);
     };
 
     tick();
-  }, [leftPanelDetails]);
+  }, [leftPanelDetails, model]);
 
   return <canvas id="myThreeJSCanvas" />;
 }
