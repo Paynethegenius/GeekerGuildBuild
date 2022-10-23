@@ -5,7 +5,9 @@ import "../threejs/threeJS.css";
 // import * as dat from "dat.gui";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import sceneModel from "../Model/contentoScene.glb";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
+import sceneModel from "../Model/contentoFulla.glb";
+
 
 import { ModelContext } from "../Context/ModelContext";
 import { cameraParam, setCamera } from "../threejs/camera.js";
@@ -37,8 +39,25 @@ function Threescene({ leftPanelDetails }) {
     let actionClip;
     let action;
 
+     //DracoLoader
+     const draco = new DRACOLoader()
+draco.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
+draco.setDecoderConfig({ type: 'js' });
+
+
+
     // GLTF loader
     const loader = new GLTFLoader();
+    loader.setDRACOLoader(draco)
+
+
+    console.log(draco)
+
+   
+
+// Specify path to a folder containing WASM/JS decoding libraries.
+
+
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -60,6 +79,10 @@ function Threescene({ leftPanelDetails }) {
           const root = gltf.scene;
           root.scale.set(s, s, s);
           root.position.set(0, -26, 0);
+
+          root.traverse((child)=>{
+              child.frustumCulled  = true
+          })
 
           //camera parameter fetch and set
           camera.lookAt(root.position);

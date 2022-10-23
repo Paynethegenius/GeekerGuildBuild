@@ -24,8 +24,8 @@ function RightPanel({ leftPanelDetails }) {
       <div className="rightpanelbodyheader allheaders"></div>
       <div className="righpanel__canva">
         {" "}
-        {activeCharacter.Webo === "active" && <Threescene leftPanelDetails={leftPanelDetails} />}
-        {activeCharacter.Soundo === "active" &&  <ThreesceneSoundo leftPanelDetails={leftPanelDetails} />}
+        <Threescene leftPanelDetails={leftPanelDetails} />
+       
       </div>
 
       <div className="rightpanelbodyfooter allfooters">
