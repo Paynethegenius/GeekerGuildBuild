@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "../Characters/webo.css";
 import weboArt1 from "../Images/Saly-1.png";
 import weboArt2 from "../Images/Saly-10.png";
@@ -7,16 +7,11 @@ import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
 import linePng from "../Images/Line.png";
-import whatsappIcon from "../Images/whatsapp.png";
-import amazonIcon from "../Images/amazon.png";
-import tiktokIcon from "../Images/tiktok.png";
 import cloud from "../Images/cloud.png";
 import plant from "../Images/Plant.png";
-import spring from "../Images/spring.png";
 import gsap from "gsap";
-import scrolldown from "../Images/scroll-down.gif"
+import scrolldown from "../Images/scroll-down.gif";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import close from "../Svg/close.svg";
 import { ModelContext } from "../Context/ModelContext";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -28,14 +23,7 @@ function Webo({ setCloseModal }) {
   const imgRef2 = useRef(null);
   const rightRef = useRef(null);
 
-  const {
-    
-    soundSelectButton,
-    soundClickButton,
-    
-  } = useContext(ModelContext);
-
-
+  const { soundSelectButton, soundClickButton } = useContext(ModelContext);
 
   const globalEase = {
     ease: "bounce.inOut",
@@ -50,7 +38,7 @@ function Webo({ setCloseModal }) {
       entries.forEach((entry) => {
         if (entry.target === divRef.current) {
           if (entry.isIntersecting) {
-            console.log(entry);
+
             gsap.to(imgRef.current, {
               bottom: 0,
               duration: 1,
@@ -62,20 +50,11 @@ function Webo({ setCloseModal }) {
               borderBottomLeftRadius: "0rem",
               duration: 1,
             });
-
-            // setInterval( ()=>{
-            //     if(divRef.current.offsetTop < rightRef.current.offsetTop ){
-            //         rightRef.current.scrollBy(0, 10 )
-            //     }
-            // }
-            //   , 200)
-
-            //   let i = divRef.current.getBoundingClientRect().top;
-            //   setInterval( ()=>{
-            //   if(i < divRef.current.offsetTop){
-            //     rightRef.current.scrollBy(0,i+=1);
-            //   }
-            // }, 1000)
+            gsap.to(".webo__scroll", {
+             opacity: 0,
+             x : "+100%",
+              duration: 2,
+            });
           } else {
             gsap.to(imgRef.current, { bottom: "-100%", duration: 1 });
             gsap.to(".webo__rightpanel__body__mid", {
@@ -83,41 +62,14 @@ function Webo({ setCloseModal }) {
               duration: 1,
             });
           }
-        } else {
-          if (entry.isIntersecting) {
-            console.log(entry);
-            gsap.to(imgRef2.current, {
-              bottom: 0,
-              duration: 1,
-              ease: globalEase.ease,
-            });
-
-            if (entry.target === divRef2.current) {
-              gsap.to(".webo__rightpanel__body__bottom", {
-                borderTopLeftRadius: "20rem",
-                duration: 1,
-              });
-            }
-          } else {
-            if (entry.target === divRef2.current) {
-              gsap.to(".webo__rightpanel__body__bottom", {
-                borderTopLeftRadius: "0rem",
-                duration: 1,
-              });
-            }
-
-            gsap.to(imgRef2.current, { bottom: "-100%", duration: 1 });
-          }
-        }
+        } 
       });
     }, option);
 
     observer.observe(divRef.current);
-    observer.observe(divRef2.current);
   };
 
   const scrollPage = (e) => {
-    console.log(e);
     if (e.deltaY > 0) {
       rightRef.current.scrollBy(rightRef.current.scrollX, 80);
     } else {
@@ -125,7 +77,11 @@ function Webo({ setCloseModal }) {
     }
   };
 
+  const addScrollEvent = (e) => {};
+
   useEffect(() => {
+    const leftImage = rightRef.current;
+
     gsap.fromTo(
       ".webo__leftpanel",
       {
@@ -161,26 +117,26 @@ function Webo({ setCloseModal }) {
         delay: 2,
       }
     );
+    gsap.fromTo(
+      ".webo__scroll",
+      {
+        x: "+50%",
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 2,
+        delay: 2,
+      }
+    );
 
     artOneTimeline();
+    leftImage.addEventListener("wheel", addScrollEvent);
 
-    rightRef.current.addEventListener("wheel", (e) => {
-      console.log(
-        "okay, I scrolled",
-        divRef.current.offsetHeight,
-        divRef.current.offsetLeft,
-        divRef.current.offsetTop,
-        divRef.current.getBoundingClientRect().top,
-        divRef.layerY,
-        ",",
-
-        e.target.offsetHeight,
-        e.target.offsetLeft,
-        e.target.scrollTop,
-        e.target.offsetWidth,
-        e.layerY
-      );
-    });
+    return () => {
+      leftImage.removeEventListener("wheel", addScrollEvent);
+    };
   }, []);
 
   return (
@@ -190,11 +146,10 @@ function Webo({ setCloseModal }) {
           className="webo__page__container__close"
           onClick={() => {
             setCloseModal(true);
-            soundClickButton()
+            soundClickButton();
           }}
-
-          onMouseOver={()=>{
-            soundSelectButton()
+          onMouseOver={() => {
+            soundSelectButton();
           }}
         >
           <svg
@@ -207,8 +162,9 @@ function Webo({ setCloseModal }) {
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
           </svg>
-        </div><div className="webo__scroll">
-        <img src={scrolldown} alt="scroll" />
+        </div>
+        <div className="webo__scroll">
+          <img src={scrolldown} alt="scroll" />
         </div>
         <div
           className="webo__leftpanel"
@@ -237,17 +193,17 @@ function Webo({ setCloseModal }) {
             <section className="webo__rightpanel__body__top">
               <div className="webo__rightpanel__body__top__container">
                 <div className="webo__rightpanel__body__top__heading">
-                  <h1>
+                  <p>
                     <span className="weboNum"> 0 1 .</span>{" "}
                     <span className="weboTag">Webo </span>
-                  </h1>
+                  </p>
                 </div>
 
                 <div className="webo__rightpanel__body__top__description__left">
                   <div className="webo__rightpanel__body__top__left__name">
-                    <h1 className="webo__name">
+                    <p className="webo__name">
                       Olowu<br></br> Durodoluwa
-                    </h1>
+                    </p>
 
                     <p className="webo__tag">
                       as a web developer<br></br>
@@ -257,41 +213,57 @@ function Webo({ setCloseModal }) {
                     <div className="webo__definition-list">
                       <img className="webo__line" src={linePng} alt="#" />
                       <div className="webo__highlight one">
+                        <p>
                         From doing it to teaching it.<br></br>He has come a long
                         way.
+                        
+                        </p>
                       </div>
                       <div className=" webo__points webo__three">
+                        <p>
                         He has always loved building things, discovering a
                         multitude of ways to solve problems as a fast learner,
                         on the way.
+                        
+                        </p>
                       </div>
                       <div className=" webo__points webo__four">
-                        He’s an engineer at heart. A creative in the mind and A
+                       <p>
+                       He’s an engineer at heart. A creative in the mind and A
                         visionary in the spirit.
+                       
+                       
+                       </p> 
                       </div>{" "}
                     </div>
                   </div>
                   <div className="webo__rightpanel__body__top__left__base">
                     <div className="webo__socials">
-                      <img
+                    <a href="https://www.instagram.com">  
+                    <img
                         src={instagramLogo}
                         alt="instagramLink"
-                        className="webo__instagram"
-                      />
+                        className="webo__socials__logo"
+                      /></a>
+                      <a href="https://www.twitter.com">
                       <img
                         src={twitterLogo}
                         alt="twitterLink"
-                        className="webo__twitter"
-                      />
+                        className="webo__socials__logo"
+                      /></a>
+                      <a href="https://www.linkedin.com/in/durodoluwa-o-862946112/">
                       <img
                         src={linkedinLogo}
                         alt="linkedLink"
-                        className="webo__linkedin"
+                        className="webo__socials__logo"
                       />
+                      </a>
                     </div>
+                    <a href="https://www.linkedin.com/in/durodoluwa-o-862946112/">
                     <div className="webo__contact">
-                      <button className="webo__button">Contact Me</button>
-                    </div>
+                    
+                      <button className="webo__button">Continue</button>
+                    </div></a>
                   </div>
                 </div>
               </div>
@@ -350,57 +322,6 @@ function Webo({ setCloseModal }) {
 
                   <div className="webo__content__secondary">
                     <p>HNIC Media</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <section className="webo__rightpanel__body__bottom" ref={divRef2}>
-              <div className="webo__springA">
-                <img src={spring} alt="" />
-              </div>
-              <div className="webo__springB">
-                <img src={spring} alt="" />
-              </div>
-              <div className="webo__rightpanel__body__bottom__container">
-                <div className="webo__rightpanel__body__bottom__container__content">
-                  <div className="webo__content__primary bottom">
-                    <p>Projects</p>
-                  </div>
-                  <div className=" webo__projects">
-                    <p>01. Whatsapp Clone</p>
-                  </div>
-                  <div className="webo__projectlist">
-                    <div className="webo__projectlist__avatar">
-                      <img src={whatsappIcon} alt="whatsapp" />
-                    </div>
-                    <div className="webo__projectlist__desc">
-                      A cloned layout of the popular app done using react and
-                      firebase for back end.
-                    </div>
-                  </div>
-                  <div className=" webo__projects">
-                    <p>02.Amazon Clone</p>
-                  </div>
-                  <div className="webo__projectlist">
-                    <div className="webo__projectlist__avatar">
-                      <img src={amazonIcon} alt="whatsapp" />
-                    </div>
-                    <div className="webo__projectlist__desc">
-                      A cloned layout of the popular app done using react and
-                      firebase for back end.
-                    </div>
-                  </div>
-                  <div className=" webo__projects">
-                    <p>03. TikTok Clone</p>
-                  </div>
-                  <div className="webo__projectlist">
-                    <div className="webo__projectlist__avatar">
-                      <img src={tiktokIcon} alt="whatsapp" />
-                    </div>
-                    <div className="webo__projectlist__desc">
-                      A cloned layout of the popular app done using react and
-                      firebase for back end.
-                    </div>
                   </div>
                 </div>
               </div>

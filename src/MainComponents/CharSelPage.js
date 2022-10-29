@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import LeftPanel from "../Views/LeftPanel";
 import RightPanel from "../Views/RightPanel";
 import "../MainComponents/charselpage.css";
@@ -7,8 +7,10 @@ import Teacho from "../Characters/Teacho";
 import Soundo from "../Characters/Soundo";
 import Contento from "../Characters/Contento";
 
+
 import IntroModal from "../Modals/IntroModal";
 import { ModelContext } from "../Context/ModelContext";
+
 
 function CharSelPage() {
 
@@ -21,15 +23,35 @@ function CharSelPage() {
     closeSoundoModal,
     setCloseSoundoModal,
     closeContentoModal,
-    setCloseContentoModal,} = useContext(ModelContext)
- 
-  
+    setCloseContentoModal, 
+    playAudio, bgMusicRef
 
+
+ } = useContext(ModelContext)  
   const referenceDiv = useRef("");
+
+
+  useEffect(() => {
+    if (playAudio === false) {
+      console.log(bgMusicRef.current.currentTime);
+      console.log("now pausing");
+      console.log("audioState", playAudio);
+      bgMusicRef.current.pause();
+      clearTimeout();
+    }
+
+    if (playAudio === true) {
+      console.log(bgMusicRef.current.currentTime);
+      console.log("now playing");
+      console.log("audioState", playAudio);
+      bgMusicRef.current.play();
+    }
+  }, [playAudio, bgMusicRef]);
 
   return (
     <div className="charselpage">
-      {!closeIntroModal && <IntroModal setCloseModal={setCloseIntroModal} />}
+   
+      {!closeIntroModal && <IntroModal setCloseIntroModal={setCloseIntroModal}  />}
       {!closeWebooModal && <Webo setCloseModal={setCloseWeboModal} />}
       {!closeTeachoModal && <Teacho setCloseModal={setCloseTeachoModal} />}
       {!closeSoundoModal && <Soundo setCloseModal={setCloseSoundoModal} />}
@@ -38,8 +60,9 @@ function CharSelPage() {
         <LeftPanel />
       </div>
       <div className="rightPanel">
-        <RightPanel leftPanelDetails={referenceDiv} />
+        <RightPanel   leftPanelDetails={referenceDiv}   />
       </div>
+
     </div>
   );
 }

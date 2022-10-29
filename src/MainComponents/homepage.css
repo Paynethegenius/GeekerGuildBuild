@@ -1,9 +1,11 @@
 .homepage {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
+  --homepage-font-size: .8rem;
 }
 
 .homepageModal {
@@ -25,8 +27,9 @@
   flex-direction: column;
   align-items: center;
   padding: 10px 10px;
-  min-width: 300px;
-  min-height: 200px;
+  min-width: 450px;
+  min-height: 360px;
+  position: relative;
 }
 
 .homepageModal__Welcome {  
@@ -35,22 +38,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;flex: 4;
+  align-items: center;
+  flex: 4;
+ 
   
 }
 .homepageModal__Welcome>h1{  
     text-align: center;
-    font-size: 1.76rem;
-    
+    font-size: calc(2.5 * var( --homepage-font-size));    
+}
+.homepageModal__Welcome>p{  
+    text-align: center;
+    font-size: calc(2.5 * var( --homepage-font-size));    
 }
 
 .homepageModal__Enter {
   width: 100%;
-  flex: 3;
-  background-color: rgb(255, 255, 255);
+  flex: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  bottom: 0px;
+
 }
 
 .homepageModal__Enter > button {
@@ -144,4 +154,44 @@ min-width: 500px;
   transform: scale(1.1);
   background-color: black;
   color: white;
+}
+
+
+@media screen and (min-width : 2560px ) {
+  .homepage{
+    --homepage-font-size: 1rem;
+  }
+  
+ 
+}
+
+@media screen and (max-width : 425px) {
+  
+  .homepage{
+    --homepage-font-size: .6rem;
+  }
+
+  .homepage__body__logo {
+    display: flex;
+    min-width: 380px;
+  }
+
+  .homepageModal__body{
+    min-width: 300px;
+  }
+}
+@media screen and (max-width :280px ) {
+  
+  .homepage{
+    --homepage-font-size: .4rem;
+  }
+
+  .homepageModal__body{
+    min-width:100%;
+  }
+
+  .homepage__body__logo {
+    display: flex;
+    min-width: 350px;
+  }
 }

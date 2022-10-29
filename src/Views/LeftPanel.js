@@ -10,23 +10,73 @@ import avatar from "../Images/Avatar.png";
 import clickAudio from "../Audio/click.mp3";
 import selectAudio from "../Audio/select.mp3";
 import { ModelContext } from "../Context/ModelContext";
-import sceneModel from "../Model/contentoScene.glb";
-import sceneModel2 from "../Model/contentoScene2.glb";
-import fox from "../Model/Fox.glb";
+import volumeOff from "../Svg/volumeOff.svg";
+
 function LeftPanel() {
-  const { setModel, activeCharacter, setActiveCharacter, setOption } =
-    useContext(ModelContext);
+  const {
+    activeCharacter,
+    setCloseWeboModal,
+    setCloseTeachoModal,
+    setCloseSoundoModal,
+    setCloseContentoModal,   
+    setActiveCharacter,
+    setOption,
+    playAudio,
+    setplayAudio
+  } = useContext(ModelContext);
+
+  const {} = useContext(ModelContext);
 
   const [character, setCharacter] = useState(Webo);
 
   const clickRef = useRef(null);
   const selectRef = useRef(null);
+  const leftPanelContentBodyRef = useRef(null);
+
+  const glowWebo = () => {
+    gsap.fromTo(
+      ".active",
+      {
+       backgroundColor : "black"
+      },
+      {
+        backgroundColor : "blue",
+        yoyo: true,
+        repeat: -1,
+      }
+    );
+  };
 
   useEffect(() => {
     animate();
-    soundSelectButton();
-  }, []);
+    // glowWebo();
+    // if (activeCharacter.Webo === "active") {
+    //   glowWebo(".webo");
+    // }
+    // if (activeCharacter.Contento === "active") {
+    //   glowWebo(".contento");
+    // }
+    // if (activeCharacter.Soundo === "active") {
+    //   glowWebo(".soundo");
+    // }
+    // if (activeCharacter.Teacho === "active") {
+    //   glowWebo(".teacho");
+    // }
 
+    // return()=>{
+
+    //   gsap.to(".webo", {
+       
+    //       backgroundColor : "blue",
+    //       yoyo: false,
+    //       repeat : 0
+    //   });
+    // }
+
+  }, [activeCharacter]);
+
+
+  
   const soundSelectButton = () => {
     selectRef.current.play();
   };
@@ -72,8 +122,16 @@ function LeftPanel() {
       <div className="leftpanelbody__content ">
         <div className="leftpanelbody__content__heading  allheaders">
           <h1>SELECT A CHARACTER</h1>{" "}
+          <img className="leftpanelbody__content__heading__mute" src = {volumeOff} alt= "mute" onClick ={()=>{
+
+            console.log("clicking")
+            playAudio ?  setplayAudio(false) :  setplayAudio(true)
+          }}/>
         </div>
-        <div className="leftpanelbody__content__body">
+        <div
+          className="leftpanelbody__content__body"
+          ref={leftPanelContentBodyRef}
+        >
           <Heading
             description="DESCRIPTION"
             icon
@@ -97,6 +155,8 @@ function LeftPanel() {
             <div className="leftpanelbody__content__selection__Avatars">
               <img
                 onClick={() => {
+                  console.log(leftPanelContentBodyRef);
+                  leftPanelContentBodyRef.current.scrollTo(0, 0);
                   setOption(6);
                   soundClickButton(Webo);
                   setCharacter(Webo);
@@ -117,6 +177,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
+                  leftPanelContentBodyRef.current.scrollTo(0, 0);
                   setOption(7);
                   soundClickButton(Contento);
                   setCharacter(Contento);
@@ -137,6 +198,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
+                  leftPanelContentBodyRef.current.scrollTo(0, 0);
                   setOption(4);
                   soundClickButton(Soundo);
                   setCharacter(Soundo);
@@ -157,6 +219,7 @@ function LeftPanel() {
               />
               <img
                 onClick={() => {
+                  leftPanelContentBodyRef.current.scrollTo(0, 0);
                   setOption(9);
                   soundClickButton(Teacho);
                   setCharacter(Teacho);
@@ -176,6 +239,34 @@ function LeftPanel() {
                 src={avatar}
                 alt="avatar"
               />
+              <div className="lefttpanelbodyfooter__select">
+                <div
+                  className="leftpanelbodyfooter__select__button"
+                  onClick={() => {
+                    leftPanelContentBodyRef.current.scrollTo(0, 0);
+
+                    if (activeCharacter.Webo === "active") {
+                      setCloseWeboModal(false);
+                      soundClickButton();
+                    }
+                    if (activeCharacter.Contento === "active") {
+                      setCloseContentoModal(false);
+                      soundClickButton();
+                    }
+                    if (activeCharacter.Soundo === "active") {
+                      setCloseSoundoModal(false);
+                      soundClickButton();
+                    }
+
+                    if (activeCharacter.Teacho === "active") {
+                      setCloseTeachoModal(false);
+                      soundClickButton();
+                    }
+                  }}
+                >
+                  <p> GO </p>
+                </div>{" "}
+              </div>
               <audio ref={clickRef}>
                 <source src={clickAudio}></source>
               </audio>

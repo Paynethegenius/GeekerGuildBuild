@@ -2,12 +2,13 @@
   background-color: var(--soundo-pink-dark);
   border-radius: 10px;
   border: 5px solid rgb(0, 0, 0);
+  display: none;
 }
 
 .soundo__page ::-webkit-scrollbar {
   background-color: rgba(255, 255, 255, 0);
+  display: none;
 }
-
 
 .soundo__page {
   background-color: rgba(0, 0, 0, 0.769);
@@ -16,13 +17,14 @@
   justify-content: center;
   font-size: 1rem;
   position: absolute;
+  top: 0px;
+  left: 0px;
   z-index: 100;
-  height: 100vh;
-  width: 100vw;
- 
+  height: 100%;
+  width: 100%;
 }
 
-.soundo__page__container{
+.soundo__page__container {
   background-color: white;
   display: flex;
   font-size: 1rem;
@@ -30,22 +32,19 @@
   width: var(--modal-width);
   position: relative;
   opacity: 1;
+  overflow: overlay;
 }
 
-.soundo__page__container__close{
+.soundo__page__container__close {
   position: absolute;
   top: 10px;
   left: 10px;
   z-index: 1000;
-  }
-  .soundo__page__container__close>svg:hover{
+}
+.soundo__page__container__close > svg:hover {
   transform: scale(1.2);
   fill: #ffb800;
-  }
-
-
-
-
+}
 
 .soundoArt1 {
   background-color: rgb(0, 0, 0);
@@ -96,23 +95,21 @@
   }
 }
 .soundo__rightpanel {
-  flex: 1;
   display: flex;
+  flex: 1 1;
   width: 100%;
-  height: 90vh;
-  align-items: center;
-  flex-direction: column;
-  /* overflow-y: scroll;
-  overflow-x: hidden; */
+
+  /* height: 90vh; */
   position: relative;
+  align-items: flex-start;
+  /* flex-direction: column; */
+  flex-shrink: 0;
+  overflow-y: scroll;
+  background-color: black;
+  /* padding-bottom: 100px; */
 }
 
 .soundo__rightpanel__body {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  width: 100%;
-  flex-shrink: 0;
 }
 
 /*RIGHT PANEL TOP PAGE*/
@@ -120,14 +117,15 @@
 .soundo__rightpanel__body__top {
   width: 100%;
   display: flex;
-  max-width: 50vw;
-  min-height: 90vh;
-  align-items: center;
+  /* max-width: 50vw;
+  min-height: 90vh; */
+  height: 100%;
+  /* align-items: center; */
   /* flex-shrink: 0; */
   /* margin-bottom: 4rem; */
-  justify-content: center;
-  background-color:black;
-  flex: 4;
+  /* justify-content: center; */
+  /* background-color: black; */
+  /* flex: 4 1; */
 }
 
 .soundo__rightpanel__body__top__container {
@@ -136,8 +134,10 @@
   flex-direction: column;
   align-items: flex-start;
   /* justify-content: flex-start; */
-  height: 100%;
-  justify-content: flex-end;
+  /* height: 100%; */
+  width: 100%;
+  justify-content: center;
+  background-color: black;
 
   /* max-width: 800px; */
 }
@@ -149,7 +149,7 @@
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
-  flex: 2;
+  /* flex: 2; */
 }
 
 .soundo__rightpanel__body__top__name {
@@ -175,12 +175,12 @@
 }
 
 .soundo__rightpanel__body__top__description__container {
-  flex: 4;
+  /* flex: 4; */
   /* min-width: 600px; */
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   background: #000;
 }
@@ -191,9 +191,8 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   align-items: flex-start;
-  padding-bottom: 40px;
 }
 
 .soundo__primary__name {
@@ -204,7 +203,7 @@
 
 .soundo__name {
   color: white;
-  font-size: calc(6.0 * var(--soundo-font));
+  font-size: calc(6 * var(--soundo-font));
   line-height: calc(6.5 * var(--soundo-font));
   font-weight: 700;
   position: relative;
@@ -244,8 +243,8 @@
   grid-column: 1/3;
   overflow-wrap: break-word;
   font-family: "Calibri";
-  font-size: 2.0rem;
-  line-height: 3.7rem;
+  font-size: calc(2 * var(--soundo-font));
+  line-height: calc(3.7 * var(--soundo-font));
   font-weight: 300;
 }
 .soundo__three {
@@ -263,33 +262,41 @@
   align-items: flex-end;
 }
 
-.soundo__socials {
-  margin-right: auto;
+.soundo__base_left {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.soundo__socials {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
 }
 .soundo__socials > img {
   width: 20%;
   height: auto;
   margin-right: 10px;
-  margin-bottom: 10px;
+
   transform: scale3d();
 }
 
 .soundo__contact {
   display: flex;
-font-size: calc(1.6 * var(--soundo-font)); ;
   align-items: flex-end;
-  width: 100%;
+  min-width: 160px;
+  justify-content: flex-end;
 }
 .soundo__contact > button {
-  font-size: calc(2 * var(--soundo-font));
+  font-size: calc(2.3 * var(--soundo-font));
   border-radius: 0.5rem;
   outline: none;
   border: none;
-  padding: 1.5rem 4rem;
+  padding: 1rem 3rem;
   color: white;
+
   background-color: var(--soundo-pink-dark);
 }
 
@@ -308,10 +315,12 @@ font-size: calc(1.6 * var(--soundo-font)); ;
 /*RIGHT PANEL Mid PAGE*/
 .soundo__rightpanel__body__mid {
   width: 100%;
+  height: 100%;
+  min-height: 700px;
   background-color: rgb(0, 0, 0);
   display: flex;
-  min-height: 90vh;
-  padding: 4rem 4rem 4rem 4rem;
+  /* min-height: 90vh; */
+  /* padding: 4rem 4rem 4rem 4rem; */
   max-width: 50vw;
   font-family: "Roboto";
   flex-shrink: 0;
@@ -329,7 +338,7 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   /* margin: auto; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   max-width: 1200px;
   width: 100%;
@@ -341,7 +350,7 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   /* height: 100%; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   /* background-color: rgb(121, 121, 121); */
   color: white;
@@ -361,7 +370,6 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   background-color: #000000;
   /* padding: 20px; */
 
-  
   justify-content: space-between;
   align-items: center;
 }
@@ -369,7 +377,7 @@ font-size: calc(1.6 * var(--soundo-font)); ;
 .soundo__musicplayer__container__top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(2.7 * var(--soundo-font));
   font-weight: 700;
   font-family: "Inter";
@@ -382,9 +390,9 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   margin: 0 50px;
 }
 .soundo__musicplayer__container__top > p:hover {
- background-color: rgba(85, 85, 85, 0.374);
- border-radius: 20px;
- padding: 0px 10px;
+  background-color: rgba(85, 85, 85, 0.374);
+  border-radius: 20px;
+  padding: 0px 10px;
 }
 .soundo__musicplayer__container__mid {
   width: 100%;
@@ -415,42 +423,46 @@ font-size: calc(1.6 * var(--soundo-font)); ;
   align-items: center;
 }
 
-.soundo__nowPlaying{
+.soundo__nowPlaying {
   flex: 5;
-  font-size:  calc(2 * var(--soundo-font));
+  font-size: calc(2 * var(--soundo-font));
 }
 
-.soundo__volumebar{
+.soundo__volumebar {
   flex: 2;
   display: flex;
-  justify-content: space-between;align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.soundo__volumebar__minus, .soundo__volumebar__add{
-display: contents;
+.soundo__volumebar__minus,
+.soundo__volumebar__add {
+  display: contents;
 }
-.soundo__volumebar__minus>svg, .soundo__volumebar__add>svg{
-width: 20%;
+.soundo__volumebar__minus > svg,
+.soundo__volumebar__add > svg {
+  width: 20%;
 }
-.soundo__volumebar__minus>svg:hover, .soundo__volumebar__add>svg:hover ,.soundo__musicplayer__container__mid__buttons>img:hover{
-transform: scale(1.2);
-transition: .5s;
-fill:var(--soundo-pink-dark);
-border-radius: 50%;
-border: 1px solid var(--soundo-pink-dark);
-background-color: rgba(255, 255, 255, 0);
-cursor: pointer;
+.soundo__volumebar__minus > svg:hover,
+.soundo__volumebar__add > svg:hover,
+.soundo__musicplayer__container__mid__buttons > img:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+  fill: var(--soundo-pink-dark);
+  border-radius: 50%;
+  border: 1px solid var(--soundo-pink-dark);
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
-.soundo__musicplayer__container__mid__buttons>img:focus{
-background-color: aqua;
+.soundo__musicplayer__container__mid__buttons > img:focus {
+  background-color: aqua;
 }
-
 
 .soundo__music__list {
   width: 90%;
   margin-top: 20px;
- 
+  flex: 1;
 }
 
 .soundo__music__list_items {
@@ -460,7 +472,6 @@ background-color: aqua;
   overflow-y: overlay;
   overflow-x: hidden;
   /* padding: 10px; */
-  
 }
 
 .soundo__music__list_items::-webkit-scrollbar {
@@ -480,7 +491,6 @@ background-color: aqua;
   border: 1px solid var(--soundo-pink-dark);
   border-radius: 15px;
   cursor: pointer;
- 
 }
 
 .soundo__music__list_item:hover {
@@ -518,17 +528,34 @@ background-color: aqua;
   margin-top: -1rem;
 }
 
-
-
-.soundo__music__list_item__equalizer{
- align-self:flex-end;
- display: contents;
+.soundo__music__list_item__equalizer {
+  align-self: flex-end;
+  display: contents;
 }
-.soundo__music__list_item__equalizer>img{
- width: 5%;
+.soundo__music__list_item__equalizer > img {
+  width: 5%;
 }
 
 /* MEDIA QUERY */
+@media screen and (max-width: 1440px) {
+  .soundo__page {
+    --soundo-font: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .soundo__page {
+    --soundo-font: 0.8rem;
+  }
+  .soundo__rightpanel__body__mid__container__content {
+    min-width: 480px;
+  }
+
+  .soundo__musicplayer__container__top > p {
+    cursor: pointer;
+    margin: 0px;
+  }
+}
 
 @media screen and (max-width: 900px) {
   .soundo__page {
@@ -543,6 +570,57 @@ background-color: aqua;
   .soundo__rightpanel__body__top {
     padding: 0;
   }
+
+  .soundo__rightpanel__body__top__heading {
+    align-items: self-start;
+    padding-left: 20px;
+  }
+
+  .soundo__rightpanel__body__top__description__container {
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  .soundo__rightpanel__body__top__description {
+    width: unset;
+  }
+
+  .soundo__rightpanel__body__mid__container__content {
+    min-width: 450px;
+  }
+
+  .soundo__musicplayer__container__top {
+    font-size: calc(2 * var(--soundo-font));
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .soundo__rightpanel {
+    flex-direction: column;
+    min-height: 685px;
+  }
+
+  .soundo__rightpanel__body__top {
+    width: 100%;
+    display: flex;
+    min-height: 100%;
+    overflow: scroll;
+  }
+  .soundo__rightpanel__body__top__container {
+    width: 70%;
+    min-height: 420px;
+  }
+
+  .soundo__rightpanel__body__mid {
+    max-width: unset;
+  }
+  .soundo__rightpanel__body__top__heading {
+    padding-left: 0px;
+  }
+
+  .soundo__rightpanel__body__top__description__container {
+    padding-left: 0px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -553,15 +631,7 @@ background-color: aqua;
 
   .soundo__rightpanel__body__top {
     padding: 0;
-  }
-
-  .soundo__rightpanel__body__top {
     flex-direction: column;
-  }
-
-  .soundo__art {
-    width: 60%;
-    min-width: 0px;
   }
 
   .soundo__rightpanel__body__top__right__image {
@@ -570,5 +640,43 @@ background-color: aqua;
     align-items: center;
     justify-content: center;
     padding: 3rem;
+  }
+
+  .soundo__rightpanel__body__mid__container__content {
+    min-width: 400px;
+  }
+  .soundo__rightpanel__body__mid__container__content {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .soundo__socials > img {
+    width: 30%;
+  }
+
+  .soundo__page__container {
+    background-color: white;
+    display: flex;
+    font-size: 1rem;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    opacity: 1;
+    overflow: overlay;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .soundo__page {
+    --soundo-font: 0.6rem;
+  }
+
+  .soundo__socials > img {
+    width: 40%;
+  }
+
+  .soundo__rightpanel__body__mid__container__content {
+    min-width: unset;
   }
 }

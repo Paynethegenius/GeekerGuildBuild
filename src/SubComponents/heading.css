@@ -11,6 +11,7 @@
     opacity: 1;
     transform-origin: top;
     transform: scaleX(1);
+    font-size: calc(1 * var(--charsel-font));
 }
 .description__header > p {
   padding: 3px 9px;
@@ -18,14 +19,14 @@
   border-radius: 12px;
   color: white;
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: calc(1.6 * var(--charsel-font));
   opacity: 1;
 }
 
 .description__header > h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: calc(2.5 * var(--charsel-font));
 }
 
 .borderadd{

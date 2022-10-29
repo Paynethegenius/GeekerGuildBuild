@@ -18,7 +18,8 @@ import gsap from "gsap";
 import { ModelContext } from "../Context/ModelContext";
 
 function Soundo({ setCloseModal }) {
-  const { soundSelectButton, soundClickButton } = useContext(ModelContext);
+ 
+  const { soundSelectButton, soundClickButton , setplayAudio,} = useContext(ModelContext);
 
   const [currentSound, setCurrentSound] = useState(soundObject.radios);
   const [mode, setMode] = useState({
@@ -81,12 +82,13 @@ function Soundo({ setCloseModal }) {
   const modeStyle = {
     fontWeight: 700,
     color: "var(--soundo-pink-dark)",
-    transform: "scale(1.8)",
+    transform: "scale(1.5)",
     transformOrigin: "center",
     transition: "1s  cubic-bezier(0.075, 0.82, 0.165, 1)",
   };
 
   const playAudio = (id) => {
+    setplayAudio(false)
     setSource(currentSound[id].sound);
     setName(currentSound[id].name);
     setActiveIcon(pause);
@@ -144,7 +146,7 @@ function Soundo({ setCloseModal }) {
         color: "white",
       },
       {
-        autoAlpha: 0,
+        autoAlpha: 1,
         duration: 1,
         delay: 0.2,
         color: "var(--soundo-pink-dark)",
@@ -171,9 +173,14 @@ function Soundo({ setCloseModal }) {
           className="soundo__page__container__close"
           onClick={() => {
             closePage();
+           
+              setplayAudio(true)
+          
+            
             soundClickButton();
             setTimeout(()=>{
                setCloseModal(true);
+               
            
             }, 2000)
            
@@ -193,8 +200,7 @@ function Soundo({ setCloseModal }) {
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
           </svg>
         </div>
-        <div className="soundo__rightpanel">
-          <div className="soundo__rightpanel__body">
+        <div className="soundo__rightpanel">         
             <section className="soundo__rightpanel__body__top">
               <div className="soundo__rightpanel__body__top__container">
                 <div className="soundo__rightpanel__body__top__heading">
@@ -227,44 +233,36 @@ function Soundo({ setCloseModal }) {
                             song that expresses a mindset or touts a product.
                           </p>
                           <br></br>
-                          <p>
-                            {" "}
-                            He is capably endowed with the ability to bring
-                            visions to life, imagined by greats, rendered by
-                            awesomes, delivered with high quality.
-                          </p>
-
-                          <br></br>
-                          <p>Hear a few of my works.</p>
+                         
+                         
+                          <p>Hear a few of his works.</p>
                         </div>{" "}
                       </div>
                     </div>
-                    <div className="soundo__rightpanel__body__top__base">
-                      <div className="soundo__base_left">
-                        {" "}
-                        <div className="soundo__socials">
-                          <img
-                            src={instagramLogo}
-                            alt="instagramLink"
-                            className="soundo__instagram"
-                          />
-                          <img
-                            src={twitterLogo}
-                            alt="twitterLink"
-                            className="soundo__twitter"
-                          />
-                          <img
-                            src={linkedinLogo}
-                            alt="linkedLink"
-                            className="soundo__linkedin"
-                          />
-                        </div>
-                        <div className="soundo__contact">
-                          <button className="soundo__button">Contact Me</button>
-                        </div>
-                      </div>
-                      <div className="soundo__base_left"></div>
+              
+                    <div className="soundo__base_left">
+                    {" "}
+                    <div className="soundo__socials">
+                      <img
+                        src={instagramLogo}
+                        alt="instagramLink"
+                        className="soundo__instagram"
+                      />
+                      <img
+                        src={twitterLogo}
+                        alt="twitterLink"
+                        className="soundo__twitter"
+                      />
+                      <img
+                        src={linkedinLogo}
+                        alt="linkedLink"
+                        className="soundo__linkedin"
+                      />
                     </div>
+                    <div className="soundo__contact">
+                      <button className="soundo__button">Continue</button>
+                    </div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -368,10 +366,12 @@ function Soundo({ setCloseModal }) {
                           <img
                             onClick={() => {
                               if (playing) {
+                                
                                 playSound.current.pause();
                                 setPlaying(false);
                                 setActiveIcon(play);
                               } else {
+                                setplayAudio(false)
                                 setPlaying(true);
                                 setActiveIcon(pause);
                                 playSound.current.pause();
@@ -494,7 +494,7 @@ function Soundo({ setCloseModal }) {
                 </div>
               </div>
             </section>
-          </div>
+         
         </div>
       </div>
     </div>

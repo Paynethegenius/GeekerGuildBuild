@@ -7,54 +7,57 @@
   background-color: rgb(255, 255, 255);
   display: none;
 }
+a {
+  text-decoration: none;
+  display: contents;
+}
 
 .webo__page {
-  background-color: rgba(0, 0, 0, 0.679);
+  background-color: rgba(0, 0, 0, 0.89);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: var(--webo-font);
   position: absolute;
   z-index: 100;
-  height: 100vh;
-  width: 100vw;
+  padding: 2rem 1rem;
+  height: 100%;
+  width: 100%;
 }
 
-
 .webo__page__container {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   display: flex;
-  font-size: 1rem;
+  font-size: var(--webo-font);
   height: var(--modal-height);
   width: var(--modal-width);
   position: relative;
 }
 
-.webo__page__container__close{
-position: absolute;
-top: 10px;
-left: 10px;
-z-index: 1000;
+.webo__page__container__close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
 }
-.webo__page__container__close>svg:hover{
-transform: scale(1.2);
-fill: rgb(201 81 54);
+.webo__page__container__close > svg:hover {
+  transform: scale(1.2);
+  fill: rgb(201 81 54);
 }
 
-.webo__scroll{
+.webo__scroll {
   background-color: var(--webo-blue-dark);
-  
+
   width: 70px;
   height: 70px;
   border-radius: 72px;
   position: absolute;
   right: 20px;
   top: 45%;
-
+  z-index: 100;
 }
 
-.webo__scroll>img{
- 
+.webo__scroll > img {
   width: 100%;
 }
 
@@ -84,7 +87,7 @@ fill: rgb(201 81 54);
 }
 
 .weboArt1 img {
-  width: 100%;
+  width: 75%;
   margin: auto;
 }
 
@@ -110,7 +113,7 @@ fill: rgb(201 81 54);
 }
 
 .weboArt2 img {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -153,6 +156,7 @@ fill: rgb(201 81 54);
   align-items: center;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   flex-shrink: 0;
 }
 
@@ -179,12 +183,16 @@ fill: rgb(201 81 54);
 
 .webo__rightpanel__body__top {
   width: 100%;
-  display: flex; 
-  max-width: 960px;
-  min-height: 90vh;
+  height: 100%;
+  min-height: 700px;
+  display: flex;
+  /* max-width: 960px; */
+  /* min-height: 90vh; */
   align-items: center;
   flex-shrink: 0;
-  margin-bottom: 4rem;
+  background-color: #fff;
+  overflow: overlay;
+  /* margin-bottom: 4rem; */
 }
 
 .webo__rightpanel__body__top__container {
@@ -193,7 +201,7 @@ fill: rgb(201 81 54);
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-left: 4rem;
+  padding: 4rem;
   max-width: 800px;
 }
 
@@ -227,7 +235,7 @@ fill: rgb(201 81 54);
   justify-content: space-between;
   align-items: flex-start;
   /* background-color: rgb(121, 121, 121); */
-  padding-right: 4rem;
+  /* padding-right: 4rem; */
 }
 
 .webo__rightpanel__body__top__left__textfield {
@@ -235,15 +243,15 @@ fill: rgb(201 81 54);
 
 .webo__name {
   color: var(--webo-blue-dark);
-  font-size: calc(7.5 * var(--webo-font));
-  line-height: calc(8 * var(--webo-font));
+  font-size: calc(5.6 * var(--webo-font));
+  line-height: calc(6 * var(--webo-font));
   font-weight: 700;
 }
 
 .webo__tag {
   color: var(--webo-black);
-  font-size: calc(4 * var(--webo-font));
-  line-height: calc(5.3 * var(--webo-font));
+  font-size: calc(3 * var(--webo-font));
+  line-height: calc(4 * var(--webo-font));
   font-weight: 400;
 }
 
@@ -253,6 +261,7 @@ fill: rgb(201 81 54);
   grid-template-rows: 0fr 0fr 0fr;
   grid-row-gap: 20px;
   align-items: center;
+  margin-bottom: 20px;
   /* height: 345px; */
 }
 
@@ -265,8 +274,8 @@ fill: rgb(201 81 54);
 .webo__highlight {
   color: var(--webo-blue-dark);
   font-family: "Calibri";
-  font-size: calc(3.8 * var(--webo-font));
-  line-height: calc(4 * var(--webo-font));
+  font-size: calc(2.8 * var(--webo-font));
+  line-height: calc(3 * var(--webo-font));
   font-weight: 400;
   font-style: normal;
 }
@@ -274,8 +283,8 @@ fill: rgb(201 81 54);
 .webo__points {
   color: var(--webo-grey-light);
   font-style: normal;
-  font-size: calc(2.3 * var(--webo-font));
-  line-height: calc(3.1 * var(--webo-font));
+  font-size: calc(1.7 * var(--webo-font));
+  line-height: calc(2.3 * var(--webo-font));
   font-weight: 300;
   width: 100%;
 }
@@ -291,23 +300,24 @@ fill: rgb(201 81 54);
   grid-row: 2/3;
   grid-column: 2/3;
   overflow-wrap: break-word;
-  padding-right: 1.2em;
+  /* padding-right: 1.2em; */
 }
 
 .webo__four {
   grid-row: 3/4;
   grid-column: 2/3;
-  padding-right: 1.2em;
+  /* padding-right: 1.2em; */
   overflow-wrap: break-word;
   white-space: break-spaces;
 }
 
 .webo__rightpanel__body__top__left__base {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
   padding-left: 90px;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .webo__socials {
@@ -315,21 +325,26 @@ fill: rgb(201 81 54);
   display: flex;
   align-items: center;
 }
-.webo__socials > img {
-  width: 25%;
+.webo__socials__logo {
+  width: 15%;
   height: auto;
   margin-right: 10px;
 }
 
 .webo__contact {
   align-self: flex-end;
+  display: flex;
+  flex: 0 0 155px;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 .webo__contact > button {
-  font-size: calc(3 * var(--webo-font));
-  border-radius: 2rem;
+  font-size: calc(1.8 * var(--webo-font));
+  border-radius: 1rem;
   outline: none;
   border: none;
-  padding: 1rem;
+
+  padding: 1rem 2rem;
   color: white;
   background-color: var(--webo-blue-dark);
 }
@@ -355,14 +370,16 @@ fill: rgb(201 81 54);
 /*RIGHT PANEL Mid PAGE*/
 .webo__rightpanel__body__mid {
   width: 100%;
+  height: 100%;
   background-color: rgb(0, 0, 0);
   display: flex;
-  min-height: 90vh;
-  padding: 4rem 4rem 4rem 4rem;
-  max-width: 1200px;
+  /* min-height: 90vh; */
+  /* padding: 4rem 4rem 4rem 4rem; */
+  /* max-width: 1200px; */
   font-family: "Roboto";
   flex-shrink: 0;
   border-bottom-left-radius: 0px;
+  overflow: overlay;
 }
 
 .webo__rightpanel__body__mid__container {
@@ -374,10 +391,11 @@ fill: rgb(201 81 54);
   max-width: 800px;
   width: 100%;
   height: 100%;
+  padding: 4rem;
 }
 .webo__rightpanel__body__mid__container__content {
-  min-width: 400px;
-  width: 80%;
+  min-width: 300px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -389,8 +407,8 @@ fill: rgb(201 81 54);
 }
 
 .webo__content__primary {
-  font-size: calc(8.9 * var(--webo-font));
-  line-height: calc(7.8 * var(--webo-font));
+  font-size: calc(6 * var(--webo-font));
+  line-height: calc(4.5 * var(--webo-font));
   color: var(--webo-blue-dark);
   font-weight: 700;
 }
@@ -401,7 +419,7 @@ fill: rgb(201 81 54);
   align-items: center;
   font-family: var(--webo-font-sub);
   font-weight: 300;
-  font-size: calc(3.4 * var(--webo-font));
+  font-size: calc(2.2 * var(--webo-font));
 }
 
 .webo__content__divider > p {
@@ -436,128 +454,62 @@ fill: rgb(201 81 54);
 
 .webo__bgPlantA {
   position: absolute;
-  bottom: 0px;
+  bottom: 4px;
+  display: flex;
+  justify-content: flex-end;
   right: 0px;
 }
 
 .webo__bgPlantB {
   position: absolute;
-  bottom: 0px;
+  bottom: 4px;
+  display: flex;
+  justify-content: flex-end;
   right: 0px;
 }
 
 .webo__content__detail {
   font-family: var(--webo-font-sub);
   font-weight: 700;
-  font-size: calc(3.6 * var(--webo-font));
+  font-size: calc(2.2 * var(--webo-font));
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .webo__content__secondary {
   font-family: var(--webo-font-main);
   font-weight: 700;
-  font-size: calc(6.8 * var(--webo-font));
+  font-size: calc(4.5 * var(--webo-font));
   color: var(--webo-blue-dark);
 }
 
-.webo__rightpanel__body__bottom {
-  width: 100%;
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  height: 90%;
-  min-height: 90vh;
-  /* padding: 8rem 4rem 10rem 4rem; */
-  max-width: 1200px;
-  font-family: "Roboto";
-  position: relative;
-}
-
-.webo__bottom {
-  z-index: 20;
-}
-
-.webo__springA {
-  position: absolute;
-  left: 80%;
-  z-index: 1;
-}
-
-.webo__springB {
-  position: absolute;
-  left: 10%;
-  bottom: 0%;
-}
-.webo__rightpanel__body__bottom__container {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 800px;
-  width: 100%;
-  height: 80%;
-}
-
-.webo__rightpanel__body__bottom__container__content {
-  min-width: 400px;
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  /* background-color: rgb(121, 121, 121); */
-  color: white;
-}
-
-.webo__bottom {
-  color: white;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.webo__projects {
-  align-self: flex-start;
-  font-family: var(--webo-font-sub);
-  font-weight: 700;
-  font-size: calc(2.6 * var(--webo-font));
-}
-
-.webo__projectlist {
-  display: flex;
-  align-items: center;
-  background-color: rgb(0, 0, 0);
-  padding: 15px 15px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-}
-
-.webo__projectlist__avatar {
-  background-color: rgba(0, 0, 0, 0);
-  flex: 0 0 15%;
-  margin-right: 40px;
-}
-
-.webo__projectlist__avatar > img {
-  box-sizing: content-box;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  border-radius: 50%;
-  padding: 2px;
-  border: 1px solid rgb(255, 255, 255);
-}
-
-.webo__projectlist__desc {
-  color: white;
-  font-size: 1.8rem;
-  font-weight: 300;
-}
-
 /* MEDIA QUERY */
+
+@media screen and (max-width: 1024px) {
+  .webo__page {
+    --webo-font: 0.9rem;
+  }
+  .webo__contact {
+    align-self: flex-end;
+    display: flex;
+    flex: 0 0 140px;
+  }
+  .webo__rightpanel__body__top__left__base {
+    padding-left: unset;
+  }
+}
 
 @media screen and (max-width: 900px) {
   .webo__page {
     /* --webo-font: 1.5rem; */
   }
-
+  .webo__page__container__close {
+    left: unset;
+    right: 10px;
+    position: absolute;
+    display: flex;
+  }
   .webo__leftpanel {
     visibility: hidden;
     display: none;
@@ -565,16 +517,40 @@ fill: rgb(201 81 54);
 
   .webo__rightpanel__body__top {
     padding: 0;
+  }
+
+
+  .webo__contact {
+    align-self: flex-end;
+    display: flex;
+    flex: 0 0 135px;
+    
+  }
+
+  .webo__points {
+
+    font-size: calc(2 * var(--webo-font));
+    
+  
+}
+
+  .webo__contact > button {
+    font-size: calc(1.7 * var(--webo-font));
   }
 }
 @media screen and (max-width: 600px) {
-  .webo__leftpanel {
-    visibility: hidden;
-    display: none;
+  .webo__page {
+    padding: 0;
+  }
+  .webo__scroll {
+    width: 35px;
   }
 
-  .webo__rightpanel__body__top {
-    padding: 0;
+  .webo__bgcloudA {
+    right: -9%;
+  }
+  .webo__bgcloudA > img {
+    width: 60%;
   }
 
   .webo__rightpanel__body__top {
@@ -592,5 +568,132 @@ fill: rgb(201 81 54);
     align-items: center;
     justify-content: center;
     padding: 3rem;
+  }
+
+  .webo__contact > button {
+    font-size: calc(1.8 * var(--webo-font));
+  }
+}
+@media screen and (max-width: 425px) {
+
+
+  .webo__scroll {
+    display: none;
+  }
+  .webo__bgcloudA > img {
+    width: 40%;
+  }
+  .webo__rightpanel__body__mid {
+    background-color: rgb(11 4 139);
+    min-height: 700px;
+  }
+
+  .webo__rightpanel__body__mid__container {
+    padding: 10px;
+  }
+
+  .webo__page__container {
+    --webo-font: 0.8rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  .webo__rightpanel__body__top__container {
+    justify-content:space-evenly;
+    height: 100%;
+    padding: 1rem;
+    
+  }
+
+  .webo__rightpanel__body__top__description__left {
+    flex: 0 1 75%;
+    /* min-width: 600px; */
+    height: 100%;
+
+    justify-content: space-evenly;
+  }
+  .webo__bgcloudA > img {
+    width: 40%;
+  }
+  .webo__bgcloudA {
+    top: 70px;
+  }
+  .weboNum {
+    font-size: calc(4.6 * var(--webo-font));
+    letter-spacing: -4.4px;
+  }
+
+  .weboTag {
+    font-size: calc(6 * var(--webo-font));
+
+    letter-spacing: -6px;
+  }
+
+  .webo__name {
+    font-size: calc(6.9 * var(--webo-font));
+    line-height: calc(7.7 * var(--webo-font));
+  }
+
+  .webo__tag {
+    font-size: calc(3.6 * var(--webo-font));
+    line-height: calc(4.4 * var(--webo-font));
+  }
+  .webo__highlight {
+    font-size: calc(3.3 * var(--webo-font));
+    line-height: calc(4.5 * var(--webo-font));
+  }
+
+  .webo__points {
+    font-size: calc(2.4 * var(--webo-font));
+    line-height: calc(3.8 * var(--webo-font));
+  }
+
+  .webo__rightpanel__body__mid__container {
+    padding: 20px;
+  }
+.webo__rightpanel__body__mid__container__content {
+    min-width: 225px;
+  }
+  .webo__page__container {
+    --webo-font: 0.7rem;
+    height: 98%;
+    width: 95%;
+  }
+
+  .webo__content__primary {
+    font-size: calc(7.7 * var(--webo-font));
+    line-height: calc(6.2 * var(--webo-font));
+    color: white;
+  }
+  .webo__content__secondary {
+    font-weight: 700;
+    font-size: calc(6.3 * var(--webo-font));
+    color: white;
+  }
+
+  .webo__content__detail {
+    font-size: calc(2.6 * var(--webo-font));
+  }
+
+  
+
+  .webo__bgPlantA img {
+    width: 50%;
+  }
+  .webo__bgPlantB img {
+    width: 50%;
+  }
+
+  .webo__contact > button {
+    font-size: calc(2 * var(--webo-font));
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .webo__page__container {
+    --webo-font: 0.6rem;
+  }
+  .webo__bgcloudA {
+    display: none;
   }
 }

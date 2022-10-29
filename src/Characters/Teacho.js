@@ -1,6 +1,6 @@
 import React, { useRef,useContext } from "react";
 import "./teacho.css";
-import teachoArt1 from "../Images/Saly-16.png";
+import teachoArt1 from "../Images/Saly-14.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
@@ -106,180 +106,171 @@ function Teacho({ setCloseModal }) {
                         <span className="spanColor">“the understanding”</span>
                       </div>
                       <div className=" teacho__points teacho__three">
-                        A different definition of student teacher? <br /> Yes
+                        <p>A different definition of student teacher? <br /> Yes
                         indeed!!!
+                        </p>
+                        <div className="teacho__accolades">
+
+                 <img
+                   src={Medal}
+                   alt="Medal"
+                   className="teacho__Medal"
+                 />
+               </div>
                       </div>{" "}
                     </div>
                   </div>
-                  <div className="teacho__rightpanel__body__top__base">
-                    <div className="teacho__base_left">
-                      {" "}
-                      <div className="teacho__socials">
-                        <img
-                          src={instagramLogo}
-                          alt="instagramLink"
-                          className="teacho__instagram"
-                        />
-                        <img
-                          src={twitterLogo}
-                          alt="twitterLink"
-                          className="teacho__twitter"
-                        />
-                        <img
-                          src={linkedinLogo}
-                          alt="linkedLink"
-                          className="teacho__linkedin"
-                        />
-                      </div>
-                      <div className="teacho__contact">
-                        <button className="teacho__button">Contact Me</button>
-                      </div>
-                    </div>
-                    <div className="teacho__base_left">
-                      <div className="teacho__accolades">
-                        {/*<img
-                        src={ISLogo}
-                        alt="Information-System"
-                        className="teacho__ISLogo"
-                      />
-                      <img
-                        src={SDLogo}
-                        alt="Software-Development"
-                        className="teacho__SDLogo"
-  />*/}
-                        <img
-                          src={Medal}
-                          alt="Medal"
-                          className="teacho__Medal"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
-            </section>
-            <section className="teacho__rightpanel__body__mid">
               <div className="teacho__rightpanel__body__mid__container">
-                <div className="teacho__content__divider">
-                  <div className="teacho__lineboxOne"></div>
-                  <p>Testimonials</p>
-                  <div className="teacho__lineboxTwo"></div>
-                </div>
+              <div className="teacho__content__divider">
+                <div className="teacho__lineboxOne"></div>
+                <p>Testimonials</p>
+                <div className="teacho__lineboxTwo"></div>
+              </div>
 
-                <div className="teacho__testimonials">
-                  <div className="teacho__testimonial card1">
-                    <div className="teacho__testimonial__card__top">
-                      <img src={Avatar1} alt="avatar1" />
-                    </div>
-                    <div className="teacho__testimonial__card__bottom">
-                      <p>
-                        "Hi Duro,<br></br>
-                        Thanks for the BCS class. <br></br>It helped in passing
-                        in one writing." &nbsp;&nbsp;&nbsp; - Gabby
-                      </p>
-                    </div>
+              <div className="teacho__testimonials">
+                <div className="teacho__testimonial card1">
+                  <div className="teacho__testimonial__card__top">
+                    <img src={Avatar1} alt="avatar1" />
                   </div>
-                  <div className="teacho__testimonial ">
-                    <div className="teacho__testimonial__card__top card2">
-                      <img src={Avatar2} alt="avatar1" />
-                    </div>
-                    <div className="teacho__testimonial__card__bottom">
-                      <p>
-                        You're an Excellent teacher<br></br>- Charles
-                      </p>
-                    </div>
-                  </div>
-                  <div className="teacho__testimonial ">
-                    <div className="teacho__testimonial__card__top card3">
-                      <img src={Avatar3} alt="avatar1" />
-                    </div>
-                    <div className="teacho__testimonial__card__bottom">
-                      <p>
-                        I saw your students at the exam center today <br></br>
-                        and, as expected, they love you" - Akin
-                      </p>
-                    </div>
+                  <div className="teacho__testimonial__card__bottom">
+                    <p>
+                      "Hi Duro,
+                      Thanks for the BCS class.It helped in passing
+                      in one writing." <br/>- Gabby
+                    </p>
                   </div>
                 </div>
-
-                <div className="teacho__content__divider">
-                  <div className="teacho__lineboxOne"></div>
-                  <p>Education</p>
-                  <div className="teacho__lineboxTwo"> </div>
+                <div className="teacho__testimonial ">
+                  <div className="teacho__testimonial__card__top card2">
+                    <img src={Avatar2} alt="avatar1" />
+                  </div>
+                  <div className="teacho__testimonial__card__bottom">
+                    <p>
+                      You're an Excellent teacher<br></br>- Charles
+                    </p>
+                  </div>
                 </div>
-                <div className="teacho__rightpanel__body__mid__container__degrees">
-                  <div className="teacho__projectlist">
-                    <div className="teacho__projectlist__avatar">
-                      <img src={BCSLogo} alt="BCSLogo" />
-                    </div>
-                    <div className="teacho__projectlist__desc">
-                      <p>
-                        <span className="teacho__degree">
-                          BCS, The Chatered Institute for IT{" "}
-                        </span>
-                        <br></br>
-                        <span className="teacho__degree__definition">
-                          The Professional Graduate Diploma, Information
-                          Technology
-                        </span>
-                      </p>
-                    </div>
+                <div className="teacho__testimonial ">
+                  <div className="teacho__testimonial__card__top card3">
+                    <img src={Avatar3} alt="avatar1" />
                   </div>
-
-                  <div className="teacho__projectlist">
-                    <div className="teacho__projectlist__avatar">
-                      <img src={BCSLogo} alt="BCSLogo" />
-                    </div>
-                    <div className="teacho__projectlist__desc">
-                      <p>
-                        <span className="teacho__degree">
-                          BCS, The Chatered Institute for IT{" "}
-                        </span>
-                        <br></br>
-                        <span className="teacho__degree__definition">
-                          The Professional Diploma, Information Technology
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="teacho__projectlist">
-                    <div className="teacho__projectlist__avatar">
-                      <img src={BCSLogo} alt="BCSLogo" />
-                    </div>
-                    <div className="teacho__projectlist__desc">
-                      <p>
-                        <span className="teacho__degree">
-                          BCS, The Chatered Institute for IT{" "}
-                        </span>
-                        <br></br>
-                        <span className="teacho__degree__definition">
-                          The Higher Education Qualification, Information
-                          Technology
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="teacho__projectlist">
-                    <div className="teacho__projectlist__avatar">
-                      <img src={UnibenLogo} alt="UnibenLogo" />
-                    </div>
-                    <div className="teacho__projectlist__desc">
-                      <p>
-                        <span className="teacho__degree">
-                          University of Benin
-                        </span>
-                        <br></br>
-                        <span className="teacho__degree__definition">
-                          BSC, Mechanical Engineering
-                        </span>
-                      </p>
-                    </div>
+                  <div className="teacho__testimonial__card__bottom">
+                    <p>
+                      I saw your students at the exam center today 
+                      and, as expected, they love you" - Akin
+                    </p>
                   </div>
                 </div>
               </div>
+
+              <div className="teacho__content__divider">
+                <div className="teacho__lineboxOne"></div>
+                <p>Education</p>
+                <div className="teacho__lineboxTwo"> </div>
+              </div>
+              <div className="teacho__rightpanel__body__mid__container__degrees">
+                <div className="teacho__projectlist">
+                  <div className="teacho__projectlist__avatar">
+                    <img src={BCSLogo} alt="BCSLogo" />
+                  </div>
+                  <div className="teacho__projectlist__desc">
+                    <p>
+                      <span className="teacho__degree">
+                      The Professional Graduate Diploma, Information
+                      Technology 
+                      </span>
+                      <br></br>
+                      <span className="teacho__degree__definition">
+                      BCS, The Chatered Institute for IT{" "}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="teacho__projectlist">
+                  <div className="teacho__projectlist__avatar">
+                    <img src={BCSLogo} alt="BCSLogo" />
+                  </div>
+                  <div className="teacho__projectlist__desc">
+                    <p>
+                      <span className="teacho__degree">
+                      The Professional Diploma, Information Technology 
+                      </span>
+                      <br></br>
+                      <span className="teacho__degree__definition">
+                      BCS, The Chatered Institute for IT{" "}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="teacho__projectlist">
+                  <div className="teacho__projectlist__avatar">
+                    <img src={BCSLogo} alt="BCSLogo" />
+                  </div>
+                  <div className="teacho__projectlist__desc">
+                    <p>
+                      <span className="teacho__degree">
+                      The Higher Education Qualification, Information
+                      Technology 
+                      </span>
+                      <br></br>
+                      <span className="teacho__degree__definition">
+                      BCS, The Chatered Institute for IT{" "}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="teacho__projectlist">
+                  <div className="teacho__projectlist__avatar">
+                    <img src={UnibenLogo} alt="UnibenLogo" />
+                  </div>
+                  <div className="teacho__projectlist__desc">
+                    <p>
+                      <span className="teacho__degree">
+                      BSC, Mechanical Engineering  
+                      </span>
+                      <br></br>
+                      <span className="teacho__degree__definition">
+                      University of Benin
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div className="teacho__rightpanel__body__bottom__base">
+             
+             
+               <div className="teacho__socials">
+                 <img
+                   src={instagramLogo}
+                   alt="instagramLink"
+                   className="teacho__instagram"
+                 />
+                 <img
+                   src={twitterLogo}
+                   alt="twitterLink"
+                   className="teacho__twitter"
+                 />
+                 <img
+                   src={linkedinLogo}
+                   alt="linkedLink"
+                   className="teacho__linkedin"
+                 />
+               </div>
+               <div className="teacho__contact">
+                 <button className="teacho__button">Continue </button>
+               </div>
+          
+             
+           </div>
             </section>
+
           </div>
         </div>
       </div>

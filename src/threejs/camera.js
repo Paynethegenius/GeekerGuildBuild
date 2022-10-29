@@ -1,12 +1,12 @@
 import * as THREE from "three";
 
 export const cameraParam = {
-  position_x: 19,
-  position_y: -2.3,
-  position_z: -1,
-  rotation_x: 1.5,
-  rotation_y: 1.3,
-  rotation_z: -1.4,
+  position_x: 12,
+  position_y: 6,
+  position_z: -13,
+  rotation_x: -2.6,
+  rotation_y: 0.5,
+  rotation_z: 2.7,
 
   orbitTarget : new THREE.Vector3(0,0,  0)
 };

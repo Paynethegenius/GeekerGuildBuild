@@ -4,23 +4,29 @@ import CharSelPage from "./MainComponents/CharSelPage";
 import Homepage from "./MainComponents/Homepage";
 import PostHomepage from "./MainComponents/PostHomepage";
 import { Routes, Route } from "react-router-dom";
-import Webo from "./Characters/Webo";
-import Teacho from "./Characters/Teacho";
-import Soundo from "./Characters/Soundo";
-import Contento from "./Characters/Contento";
+import Div100vh from 'react-div-100vh';
 
 function App() {
+  // const documentHeight = () => {
+  //   const doc = document.documentElement;
+  //   doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", documentHeight);
+  //   documentHeight();
+  // }, []);
+
   return (
+    <Div100vh>
+    
+    
+    
     <div className="App">
       {
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/loading" element={<PostHomepage />} />
           <Route path="/select" element={<CharSelPage />} />
-          <Route path="/webo" element={<Webo />} />
-          <Route path="/contento" element={<Contento />} />
-          <Route path="/soundo" element={<Soundo />} />
-          <Route path="/teacho" element={<Teacho />} />
           <Route />
         </Routes>
       }
@@ -36,6 +42,7 @@ function App() {
       {/**Teacho Page */}
       {/**Contact Page */}
     </div>
+    </Div100vh>
   );
 }
 

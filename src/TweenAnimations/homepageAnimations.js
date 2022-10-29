@@ -33,8 +33,8 @@ export const animateModalExit = (revealFunc) => {
   let exitTimeline = gsap.timeline();
   exitTimeline.fromTo(
     ".homepageModal",
-    { x: 0 },
-    { duration: 0.5, x: "+100%", ease: "back.out(1.7)" },
+    { x: 0 , display : "flex"},
+    { duration: 0.5, x: "+100%", display: "none", ease: "back.out(1.7)" },
     { onFinish: revealFunc }
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 // import DatGui from "../threejs/DatGui";
 import * as THREE from "three";
 import "../threejs/threeJS.css";
@@ -14,8 +14,12 @@ import { cameraParam, setCamera } from "../threejs/camera.js";
 
 import { dirLight, hemiLight } from "./lights";
 
+
 function Threescene({ leftPanelDetails }) {
   // const [datGui, setDatGui] = useState(new dat.GUI());
+
+ const {dismissLoader, setDismissLoader
+} = useContext(ModelContext);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -49,9 +53,7 @@ draco.setDecoderConfig({ type: 'js' });
     // GLTF loader
     const loader = new GLTFLoader();
     loader.setDRACOLoader(draco)
-
-
-    console.log(draco)
+  
 
    
 
@@ -67,8 +69,18 @@ draco.setDecoderConfig({ type: 'js' });
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.setSize(
       window.innerWidth - leftPanelDetails.current.clientWidth,
-      leftPanelDetails.current.clientHeight
+     window.innerHeight
     );
+
+    // Default Camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      (sizes.width - leftPanelDetails.current.clientWidth) /
+      window.innerHeight,
+      0.01,
+      1000
+    );
+    scene.add(camera);
 
     //Loader Function
     function loadscene(path, scene, s) {
@@ -81,7 +93,7 @@ draco.setDecoderConfig({ type: 'js' });
           root.position.set(0, -26, 0);
 
           root.traverse((child)=>{
-              child.frustumCulled  = true
+              child.frustumCulled  = false
           })
 
           //camera parameter fetch and set
@@ -143,10 +155,14 @@ draco.setDecoderConfig({ type: 'js' });
       Contento.clampWhenFinished = true;
       Contento.play();
       Tweeto.play();
-        },
 
-        (e) => {
-          console.log("progressing");
+      setDismissLoader(false)
+        },
+        
+
+        (gltf) => {
+          console.log( (gltf.loaded / 192000) + '% loading' );
+          console.log( (gltf.total) + '% loading' );
         }
       );
     }
@@ -155,6 +171,8 @@ draco.setDecoderConfig({ type: 'js' });
     window.addEventListener("resize", (event) => {
       sizes.width = window.innerWidth - leftPanelDetails.current.clientWidth;
       sizes.height = leftPanelDetails.current.clientHeight;
+
+      console.log(sizes.height)
 
       if (sizes.width < 120) {
         renderer.setSize(0, 0);
@@ -168,15 +186,7 @@ draco.setDecoderConfig({ type: 'js' });
       }
     });
 
-    // Default Camera
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      (sizes.width - leftPanelDetails.current.clientWidth) /
-        leftPanelDetails.current.clientHeight,
-      0.01,
-      1000
-    );
-    scene.add(camera);
+    
 
     /* Scene */
     const sceneBgColor = new THREE.Color("white");
@@ -186,6 +196,7 @@ draco.setDecoderConfig({ type: 'js' });
     //Orbit Control
     const orbit = new OrbitControls(camera, canvas);
     orbit.enableDamping = true;
+    orbit.autoRotate = true;
     // orbit.target = parameters.orbitTarget
 
     //Update Camera for other scenes

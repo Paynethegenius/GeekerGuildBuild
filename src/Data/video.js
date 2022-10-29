@@ -5,29 +5,28 @@ import MotionGraphicsD from "../Video/Motion Graphics/FirstBank Sting HD_4.mp4";
 import MotionGraphicsE from "../Video/Motion Graphics/Boxer Street Tunes.mp4";
 import MotionGraphicsF from "../Video/Motion Graphics/FirstBank short.mp4";
 
-import EditsA from "../Video/Edits/BEEF_SAUCE[1].mp4";
-import EditsB from "../Video/Edits/GARLIC_BUTTER_SHRIMP[1].mp4";
+import EditsA from "../Video/Edits/Beef Sauce.mp4";
+import EditsB from "../Video/Edits/Garlic Butter Shrimp.mp4";
 
-import ShortsA from "../Video/Shorts/Nitro Entry.mp4";
+import ShortsA from "../Video/Shorts/Coderma.mp4";
+import ShortsB from "../Video/Shorts/MarriageVid.mp4";
+import ShortsC from "../Video/Shorts/Nitro Pool Party .mp4";
+import ShortsD from "../Video/Shorts/NkechiOpe.mp4";
 
-import socialA from "../Video/SocialMedia/Duros Worlddd.mov";
-import socialB from "../Video/SocialMedia/Hello Nitro 3.mp4";
-import socialC from "../Video/SocialMedia/Nitro Ann.mov";
+import socialA from "../Video/SocialMedia/Duros Worlddd.mp4";
+import socialB from "../Video/SocialMedia/Hello Nitro.mp4";
+import socialC from "../Video/SocialMedia/Nitro Ann.mp4";
 import socialD from "../Video/SocialMedia/Nitro IWD Spa.mp4";
-import socialE from "../Video/SocialMedia/Nitro Pool Party (2).mp4";
-import socialF from "../Video/SocialMedia/NitroNXT 2.mp4";
-import socialG from "../Video/SocialMedia/NitroNXT Day 3.mp4";
-import socialH from "../Video/SocialMedia/NitroNXT Day 4.mp4";
-import socialI from "../Video/SocialMedia/Outfit 2.mp4";
-import socialJ from "../Video/SocialMedia/VID-20210915-WA0000~2.mp4";
+import socialE from "../Video/SocialMedia/NitroNXT2.mp4";
+import socialF from "../Video/SocialMedia/NitroNXT Day3.mp4";
+import socialG from "../Video/SocialMedia/NitroNXT Day4.mp4";
+import socialH from "../Video/SocialMedia/Outfit 2.mp4";
+
 
 import thumbnail from "../Images/Thumbnail (1).png";
 
 export const videoObject = {
-  text: {
-    details:
-      "Entrusted with capturing moments that happen sparringly, from casual events to directed executions, he has done well. He still finds it funny that, a great history recorder like himself, is usually in a bind when asked to submit videos he appeeared in.",
-  },
+  
 
   SocialMedia: [
     {
@@ -64,7 +63,7 @@ export const videoObject = {
     },
     {
       video: socialE,
-      name: "Nitro Pool Party",
+      name: "NitroNXT A",
       clipArt: thumbnail,
       id: 4,
       description: "DescriptionE",
@@ -72,7 +71,7 @@ export const videoObject = {
     },
     {
       video: socialF,
-      name: "NitroNXT A",
+      name: "NitroNXT B",
       clipArt: thumbnail,
       id: 5,
       description: "DescriptionF",
@@ -80,7 +79,7 @@ export const videoObject = {
     },
     {
       video: socialG,
-      name: "NitroNXT B",
+      name: "NitroNXT C",
       clipArt: thumbnail,
       id: 6,
       description: "DescriptionG",
@@ -88,41 +87,49 @@ export const videoObject = {
     },
     {
       video: socialH,
-      name: "NitroNXT C",
+      name: "Mydem Outfit",
       clipArt: thumbnail,
       id: 7,
       description: "DescriptionH",
       category: "Social Media",
     },
-    {
-      video: socialI,
-      name: "Mydem Outfit",
-      clipArt: thumbnail,
-      id: 8,
-      description: "DescriptionI",
-      category: "Social Media",
-    },
-    {
-      video: socialJ,
-      name: "Coderma Ad",
-      clipArt: thumbnail,
-      id: 9,
-      description: "DescriptionJ",
-      category: "Social Media",
-    },
+  
   ],
   Shorts: [
     {
       video: ShortsA,
-      name: "Nitro Award Entry",
+      name: "Coderma Ad",
       clipArt: thumbnail,
       id: 0,
       description: "Description",
       category: "Shorts",
     },
-    // { video: socialB, name: "Dano Val", clipArt: thumbnail , id : 1 },
-    // { video: socialC, name: "FirstBank SqueezeBack", clipArt: thumbnail, id : 2},
-    // { video: socialD, name: "FirstBank Sting", clipArt: thumbnail , id : 3},
+    {
+      video: ShortsB,
+      name: "Charles Weds Abisola",
+      clipArt: thumbnail,
+      id: 1,
+      description: "Description",
+      category: "Shorts",
+    },
+    {
+      video: ShortsC,
+      name: "Nitro Pool Party",
+      clipArt: thumbnail,
+      id: 2,
+      description: "Description",
+      category: "Shorts",
+    },
+    {
+      video: ShortsD,
+      name: "Ope Weds Nkechi",
+      clipArt: thumbnail,
+      id: 3,
+      description: "Description",
+      category: "Shorts",
+    },
+   
+    
   ],
   Edits: [
     {

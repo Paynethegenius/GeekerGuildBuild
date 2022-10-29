@@ -1,86 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
- 
 }
 
 :root {
-  --blue : #3434CA;
-  --yellow : #ffc738;
+  --blue: #3434ca;
+  --yellow: #ffc738;
 
   /*WEBO*/
-  --webo-blue-dark : #0B048B;
-  --webo-grey-light : #434343;
-  --webo-black : #000000;
+  --webo-blue-dark: #0b048b;
+  --webo-grey-light: #434343;
+  --webo-black: #000000;
   --webo-font: 1rem;
-  --webo-font-main : "Roboto";
-  --webo-font-sub : "Calibri";
-  
+  --webo-font-main: "Roboto";
+  --webo-font-sub: "Calibri";
+
   /*TEACHO*/
-  --teacho-purple-dark : #7B00D6;
-  --teacho-blue-dark : #0A0546;
-  --teacho-grey-light : #434343;
+  --teacho-purple-dark:#ff0202;
+  --teacho-blue-dark: #0a0546;
+  --teacho-grey-light: #434343;
   --teacho-font: 1rem;
-  --teacho-font-main : "Roboto";
-  --teacho-font-sub : "Calibri";
-  --teacho-black : #000000;
-  
+  --teacho-font-main: "Roboto";
+  --teacho-font-sub: "Calibri";
+  --teacho-black: #000000;
+
   /*SOUNDO*/
-  --soundo-pink-dark : #ffb800;
-  --soundo-blue-dark : #0A0546;
-  --soundo-grey-light : #434343;
+  --soundo-pink-dark: #09ccff;
+  --soundo-blue-dark: #0a0546;
+  --soundo-grey-light: #434343;
   --soundo-font: 1rem;
-  --soundo-font-main : "Roboto";
-  --soundo-font-sub : "Calibri";
-  --soundo-black : #000000;
+  --soundo-font-main: "Roboto";
+  --soundo-font-sub: "Calibri";
+  --soundo-black: #000000;
 
   /*CONTENTO*/
-  --contento-color-primary : #00ffe2;
+  --contento-color-primary: #ffc738;
   --contento-color-secondary: #ffffff;
-  --contento-color-tertiary : #434343;
+  --contento-color-tertiary: #434343;
   --contento-font: 1rem;
-  --contento-font-main : "Roboto";
-  --contento-font-sub : "Calibri";
-  --contento-color-dark : #000000;
+  --contento-font-main: "Roboto";
+  --contento-font-sub: "Calibri";
+  --contento-color-dark: #000000;
 
   /*MODAL GLOBAL*/
+  --modal-width: 95%;
+  --modal-height: 90%;
 
-  --modal-width : 95%;
-  --modal-height : 90%
+  /*Query Widths*/
+  --Screen-Mobile-S: 320px;
+  --Screen-Mobile-M: 375px;
+  --Screen-Mobile-L: 425px;
+  --Screen-Tablet: 768px;
+  --Screen-Laptop: 1024px;
+  --Screen-Laptop-L: 1440px;
+  --Screen-4K: 2560px;
 
-  
+  /*CHAR SELECTION PAGE*/
+
+  --charsel-font: 1rem;
 }
 
-html{
+html {
   font-size: 67.5%;
- 
+}
+
+@font-face {
+  font-family: "Amatic SC";
+  src: url("./Fonts/AmaticSC-Regular.ttf") format("truetype");
 }
 
 body {
   overflow: hidden;
   width: 100vw;
-  height: 100vh;  
-  background-color: black ;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
   font-family: "Roboto";
-  font-size: inherit ;
+  font-size: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-.body::-webkit-scrollbar { 
+.body::-webkit-scrollbar {
   display: none;
- }
-
-
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
