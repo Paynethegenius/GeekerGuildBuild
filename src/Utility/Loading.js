@@ -3,12 +3,12 @@ import Box from '@mui/material/Box';
 
 import CircularProgress from '@mui/material/CircularProgress';
 
-export default function Loading() {
+export default function Loading({color}) {
 
     
   return (
     <Box sx={{ display: 'flex' }}>
-    <CircularProgress />
+    <CircularProgress  sx = {{color}} />
   </Box>
   )
 }

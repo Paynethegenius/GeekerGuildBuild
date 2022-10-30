@@ -49,6 +49,7 @@ function LeftPanel() {
 
   useEffect(() => {
     animate();
+   
     // glowWebo();
     // if (activeCharacter.Webo === "active") {
     //   glowWebo(".webo");

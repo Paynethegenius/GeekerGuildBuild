@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   
+  
 }
 
 .homepageModal__body {
@@ -49,7 +50,8 @@
 }
 .homepageModal__Welcome>p{  
     text-align: center;
-    font-size: calc(2.5 * var( --homepage-font-size));    
+    font-size: calc(3 * var( --homepage-font-size)); 
+    font-family: 'Comforter Brush', cursive;   
 }
 
 .homepageModal__Enter {
@@ -85,6 +87,17 @@
     color: white;
     background-color: black;
     border: 1px solid rgb(255, 255, 255);
+  }
+
+  .homepageModal__delay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ flex-direction: column;
+  }
+
+  .homepageModal__delay>p{
+    margin-bottom: 10px;
   }
 
 .homepage__body {

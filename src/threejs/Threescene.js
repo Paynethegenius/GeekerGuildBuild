@@ -18,20 +18,35 @@ import { dirLight, hemiLight } from "./lights";
 function Threescene({ leftPanelDetails }) {
   // const [datGui, setDatGui] = useState(new dat.GUI());
 
- const {dismissLoader, setDismissLoader
-} = useContext(ModelContext);
-
-  useEffect(() => {
-    const scene = new THREE.Scene();
-
-    // Get Canvas for rendering
-    const canvas = document.getElementById("myThreeJSCanvas");
-
     //Sizes
     const sizes = {
       width: window.innerWidth,
       height: window.innerHeight,
     };
+
+
+  const createThreeInstance = ()=>{
+
+    if(sizes.width < 601){
+      setThreeMake(false);
+    }else{
+      setThreeMake(true);
+    }
+  }
+
+ const {dismissLoader, setDismissLoader, setThreeMake, threeMake
+} = useContext(ModelContext);
+
+  useEffect(() => {
+
+    createThreeInstance();
+
+    const scene = new THREE.Scene();
+
+    // Get Canvas for rendering
+    const canvas = document.getElementById("myThreeJSCanvas");
+
+  
 
     //Gui Parameter
     const parameters = {
@@ -68,14 +83,14 @@ draco.setDecoderConfig({ type: 'js' });
     });
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.setSize(
-      window.innerWidth - leftPanelDetails.current.clientWidth,
+      window.innerWidth - leftPanelDetails?.current.clientWidth,
      window.innerHeight
     );
 
     // Default Camera
     const camera = new THREE.PerspectiveCamera(
       75,
-      (sizes.width - leftPanelDetails.current.clientWidth) /
+      (sizes.width - leftPanelDetails?.current.clientWidth) /
       window.innerHeight,
       0.01,
       1000
@@ -169,14 +184,17 @@ draco.setDecoderConfig({ type: 'js' });
 
     //Update Screen Size on resize using Left-Panel as reference
     window.addEventListener("resize", (event) => {
-      sizes.width = window.innerWidth - leftPanelDetails.current.clientWidth;
-      sizes.height = leftPanelDetails.current.clientHeight;
+      sizes.width = window.innerWidth - leftPanelDetails?.current.clientWidth;
+      sizes.height = leftPanelDetails?.current.clientHeight;
 
       console.log(sizes.height)
 
       if (sizes.width < 120) {
         renderer.setSize(0, 0);
+        setThreeMake(false);
+        console.log("threeMake", threeMake)
       } else {
+        setThreeMake(true);
         canvas.width = sizes.width;
         canvas.height = sizes.height;
 
@@ -288,7 +306,7 @@ draco.setDecoderConfig({ type: 'js' });
         scene.remove(scene.children[0]);
       }
     };
-  }, [leftPanelDetails]);
+  }, [leftPanelDetails, threeMake ]);
 
   return <canvas id="myThreeJSCanvas" />;
 }

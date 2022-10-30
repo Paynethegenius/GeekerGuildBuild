@@ -7,22 +7,20 @@ import { Routes, Route } from "react-router-dom";
 import Div100vh from 'react-div-100vh';
 
 function App() {
-  // const documentHeight = () => {
-  //   const doc = document.documentElement;
-  //   doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-  // };
+  const count = useRef(1)
 
-  // useEffect(() => {
-  //   window.addEventListener("resize", documentHeight);
-  //   documentHeight();
-  // }, []);
 
+  useEffect(()=>{
+    count.current += 1;
+    console.log("rerenders" , count.current)
+
+  })
   return (
     <Div100vh>
     
     
     
-    <div className="App">
+    <div className="App" >
       {
         <Routes>
           <Route path="/" element={<Homepage />} />

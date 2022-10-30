@@ -11,17 +11,17 @@ import selectAudio from "../Audio/select.mp3";
 import clickAudio from "../Audio/click.mp3";
 
 import { Link } from "react-router-dom";
+import Loading from "../Utility/Loading";
 
 function Homepage() {
   const audioRef = useRef(null);
   const enterRef = useRef(null);
   const clickEnterRef = useRef(null);
- 
+  const [audioReady, setAudioReady] = useState(false);
 
   const playAudio = (ref) => {
     ref.current.play();
   };
-
 
   const revealHome = () => {
     playAudio(audioRef);
@@ -35,7 +35,14 @@ function Homepage() {
 
   return (
     <div className="homepage">
-      <audio ref={audioRef}>
+      <audio
+        ref={audioRef}
+        src={audio}
+        onCanPlayThrough={() => {
+          setAudioReady(true);
+          console.log("audio Ready");
+        }}
+      >
         <source src={audio} />
       </audio>
       <audio ref={enterRef}>
@@ -44,23 +51,30 @@ function Homepage() {
       <audio ref={clickEnterRef}>
         <source src={clickAudio} />
       </audio>
-     
+
       <div className="homepageModal">
         <div className="homepageModal__body">
           <div className="homepageModal__Welcome">
             <h1>WELCOME TO GEEKERS GUILD</h1>
 
-            <p> &copy; Olowu Durodoluwa</p>
+            <p> Built by Olowu Durodoluwa</p>
           </div>
           <div className="homepageModal__Enter">
-            <button
-              onClick={() => {
-                animateModalExit(revealHome());
-                animateHomePage();
-              }}
-            >
-              Start
-            </button>{" "}
+            {audioReady ? (
+              <button
+                onClick={() => {
+                  animateModalExit(revealHome());
+                  animateHomePage();
+                }}
+              >
+                Start
+              </button>
+            ) : (
+              <div className="homepageModal__delay">
+                <p> Loading Experience Audio...</p>
+                <Loading color={{ color: "black" }} />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -68,7 +82,7 @@ function Homepage() {
         <div className="homepage__body__main">
           <div className="homepage__body__logo">
             {" "}
-            {modalIsClicked && <img src={Logo} alt="home-logo" />}
+            {modalIsClicked && <img src={Logo} alt="home-logo"  />}
           </div>
           <div className="homepage__body__text">
             {" "}
@@ -79,10 +93,7 @@ function Homepage() {
       <div className="homepage__footer">
         <Link to={"/select"}>
           <button
-            onClick={() => {
-            
-              
-            }}
+            onClick={() => {}}
             onMouseEnter={() => {
               playAudio(enterRef);
             }}

@@ -7,14 +7,12 @@ import Teacho from "../Characters/Teacho";
 import Soundo from "../Characters/Soundo";
 import Contento from "../Characters/Contento";
 
-
 import IntroModal from "../Modals/IntroModal";
 import { ModelContext } from "../Context/ModelContext";
 
-
 function CharSelPage() {
-
-  const {closeIntroModal,
+  const {
+    closeIntroModal,
     setCloseIntroModal,
     closeWebooModal,
     setCloseWeboModal,
@@ -23,46 +21,59 @@ function CharSelPage() {
     closeSoundoModal,
     setCloseSoundoModal,
     closeContentoModal,
-    setCloseContentoModal, 
-    playAudio, bgMusicRef
-
-
- } = useContext(ModelContext)  
+    setCloseContentoModal,
+    threeMake,
+    setThreeMake,
+    playAudio,
+    bgMusicRef,
+  } = useContext(ModelContext);
   const referenceDiv = useRef("");
 
+  const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  const createThreeInstance = () => {
+    if (sizes.width < 601) {
+      setThreeMake(false);
+    } else {
+      setThreeMake(true);
+    }
+  };
+
+  const charselRef = useRef(null);
+  createThreeInstance();
 
   useEffect(() => {
     if (playAudio === false) {
-      console.log(bgMusicRef.current.currentTime);
-      console.log("now pausing");
-      console.log("audioState", playAudio);
       bgMusicRef.current.pause();
       clearTimeout();
     }
 
     if (playAudio === true) {
-      console.log(bgMusicRef.current.currentTime);
-      console.log("now playing");
-      console.log("audioState", playAudio);
       bgMusicRef.current.play();
     }
   }, [playAudio, bgMusicRef]);
 
+
   return (
-    <div className="charselpage">
-   
-      {!closeIntroModal && <IntroModal setCloseIntroModal={setCloseIntroModal}  />}
+    <div className="charselpage" ref={charselRef}>
+      {!closeIntroModal && (
+        <IntroModal setCloseIntroModal={setCloseIntroModal} />
+      )}
       {!closeWebooModal && <Webo setCloseModal={setCloseWeboModal} />}
       {!closeTeachoModal && <Teacho setCloseModal={setCloseTeachoModal} />}
       {!closeSoundoModal && <Soundo setCloseModal={setCloseSoundoModal} />}
-      {!closeContentoModal && <Contento setCloseModal={setCloseContentoModal} />}
+      {!closeContentoModal && (
+        <Contento setCloseModal={setCloseContentoModal} />
+      )}
       <div className="leftPanel" ref={referenceDiv}>
         <LeftPanel />
       </div>
       <div className="rightPanel">
-        <RightPanel   leftPanelDetails={referenceDiv}   />
+        {threeMake && <RightPanel leftPanelDetails={referenceDiv} />}
       </div>
-
     </div>
   );
 }

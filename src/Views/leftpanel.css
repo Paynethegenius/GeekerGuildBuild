@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  font-family: "calibri";
+  font-family: var(--main-font);
   font-size: var(--charsel-font);
 }
 

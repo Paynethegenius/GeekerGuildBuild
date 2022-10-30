@@ -1,10 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+@font-face {
+  font-family: "Amatic SC";
+  src: url("./Fonts/AmaticSC-Regular.ttf") format("truetype");
+  font-family: "Amatic SC Bold";
+  src: url("./Fonts/AmaticSC-Bold.ttf") format("truetype");
+  font-family: "Calibri";
+  src: url("./Fonts/Calibri.ttf") format("truetype");
+  font-family: "Calibri light";
+  src: url("./Fonts/Calibri.ttf") format("truetype");
+  font-family: "Calibri Bold";
+  src: url("./Fonts/Calibrib.ttf") format("truetype");
+}
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
+
+
 
 :root {
   --blue: #3434ca;
@@ -19,7 +34,7 @@
   --webo-font-sub: "Calibri";
 
   /*TEACHO*/
-  --teacho-purple-dark:#ff0202;
+  --teacho-purple-dark: #ff0202;
   --teacho-blue-dark: #0a0546;
   --teacho-grey-light: #434343;
   --teacho-font: 1rem;
@@ -63,13 +78,15 @@
   --charsel-font: 1rem;
 }
 
+
+
+
+
 html {
   font-size: 67.5%;
-}
+  --main-font : "Calibri",'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif ';
+  --sub-font : "Roboto", "Arial", 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 
-@font-face {
-  font-family: "Amatic SC";
-  src: url("./Fonts/AmaticSC-Regular.ttf") format("truetype");
 }
 
 body {
@@ -77,7 +94,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgb(0, 0, 0);
-  font-family: "Roboto";
+  font-family: var(--sub-font);
   font-size: inherit;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -89,7 +106,3 @@ body {
   display: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
