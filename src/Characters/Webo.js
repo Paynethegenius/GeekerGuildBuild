@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useContext } from "react";
 import "../Characters/webo.css";
 import weboArt1 from "../Images/Saly-1.png";
 import weboArt2 from "../Images/Saly-10.png";
-import weboArt3 from "../Images/Saly-38.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
@@ -18,9 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Webo({ setCloseModal }) {
   const divRef = useRef(null);
-  const divRef2 = useRef(null);
   const imgRef = useRef(null);
-  const imgRef2 = useRef(null);
   const rightRef = useRef(null);
 
   const { soundSelectButton, soundClickButton } = useContext(ModelContext);
@@ -177,10 +174,7 @@ function Webo({ setCloseModal }) {
           </div>
           <div ref={imgRef} className="weboArt2">
             <img src={weboArt2} alt="Webo_Image" />
-          </div>
-          <div ref={imgRef2} className="weboArt3">
-            <img src={weboArt3} alt="Webo_Image" />
-          </div>
+          </div>         
         </div>
         <div className="webo__rightpanel" ref={rightRef}>
           <div className="webo__bgcloudA">

@@ -39,8 +39,7 @@ function Homepage() {
         ref={audioRef}
         src={audio}
         onCanPlayThrough={() => {
-          setAudioReady(true);
-          console.log("audio Ready");
+          setAudioReady(true);      
         }}
       >
         <source src={audio} />

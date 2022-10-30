@@ -1,17 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import "./soundo.css";
-import soundoArt1 from "../Images/Saly-13 (3).png";
-import soundoArt2 from "../Images/Saly-37.png";
 import twitterLogo from "../Images/tweeter.png";
 import instagramLogo from "../Images/instagram.png";
 import linkedinLogo from "../Images/Linked.png";
-
 import pause from "../Svg/pause.svg";
 import play from "../Svg/play.svg";
 import previous from "../Svg/skip_previous.svg";
 import next from "../Svg/skip_next.svg";
 import { soundObject } from "../Data/audio.js";
-import { useRef } from "react";
 import equalizer from "../Svg/equalizer.svg";
 import radio from "../Svg/radio.svg";
 import gsap from "gsap";
@@ -43,7 +39,7 @@ function Soundo({ setCloseModal }) {
       {
         x: "100%",
       },
-      { x: 0, stagger: 0.1 }
+      { x: 0, stagger: 0.1, time : 1}
     );
   };
 
@@ -155,10 +151,9 @@ function Soundo({ setCloseModal }) {
     ),
   ];
 
-  const placebo = () => {};
 
   useEffect(() => {
-    console.log(listIndex);
+ 
     adjustVolume();
   }, [volume]);
 
@@ -458,7 +453,7 @@ function Soundo({ setCloseModal }) {
                   </div>
                   <div className="soundo__music__list">
                     <ul className="soundo__music__list_items">
-                      {currentSound.map((item, id) => {
+                      {currentSound ? currentSound.map((item, id) => {
                         return (
                           <li
                             className="soundo__music__list_item"
@@ -488,13 +483,12 @@ function Soundo({ setCloseModal }) {
                             )}
                           </li>
                         );
-                      })}
+                      }) : <li  className="soundo__music__list_item">Loading</li>}
                     </ul>
                   </div>
                 </div>
               </div>
-            </section>
-         
+            </section>       
         </div>
       </div>
     </div>

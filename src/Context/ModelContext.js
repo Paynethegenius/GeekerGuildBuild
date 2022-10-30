@@ -12,8 +12,8 @@ const pack = {
 export const ModelContext = createContext(pack);
 
 function ModelContextProvider(props) {
-  const [model, setModel] = useState({ });
-  const [closeIntroModal, setCloseIntroModal] = useState(false);
+
+  const [closeIntroModal, setCloseIntroModal] = useState(true);
   const [closeWebooModal, setCloseWeboModal] = useState(true);
   const [closeTeachoModal, setCloseTeachoModal] = useState(true);
   const [closeSoundoModal, setCloseSoundoModal] = useState(true);
@@ -45,9 +45,7 @@ function ModelContextProvider(props) {
 
   return (
     <ModelContext.Provider
-      value={{
-        model,
-        setModel,
+      value={{    
         closeIntroModal,
         setCloseIntroModal,
         closeWebooModal,

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext, useEffect } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import LeftPanel from "../Views/LeftPanel";
 import RightPanel from "../Views/RightPanel";
 import "../MainComponents/charselpage.css";
@@ -11,6 +11,8 @@ import IntroModal from "../Modals/IntroModal";
 import { ModelContext } from "../Context/ModelContext";
 
 function CharSelPage() {
+
+  
   const {
     closeIntroModal,
     setCloseIntroModal,
@@ -27,28 +29,33 @@ function CharSelPage() {
     playAudio,
     bgMusicRef,
   } = useContext(ModelContext);
-  const referenceDiv = useRef("");
 
-  const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight,
-  };
+  const referenceDiv = useRef("");
+  const charselRef = useRef(null);
 
   const createThreeInstance = () => {
-    if (sizes.width < 601) {
+    if (sizes.width <= 600) {
       setThreeMake(false);
     } else {
       setThreeMake(true);
     }
   };
 
-  const charselRef = useRef(null);
-  createThreeInstance();
+  const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  useEffect(()=>{
+    createThreeInstance();
+    //load canva element if screen size permits.
+  },[])
+
 
   useEffect(() => {
     if (playAudio === false) {
       bgMusicRef.current.pause();
-      clearTimeout();
+    
     }
 
     if (playAudio === true) {
@@ -59,7 +66,7 @@ function CharSelPage() {
 
   return (
     <div className="charselpage" ref={charselRef}>
-      {!closeIntroModal && (
+      {closeIntroModal && (
         <IntroModal setCloseIntroModal={setCloseIntroModal} />
       )}
       {!closeWebooModal && <Webo setCloseModal={setCloseWeboModal} />}

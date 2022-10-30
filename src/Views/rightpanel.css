@@ -9,6 +9,7 @@
   width: 100%;
   position: absolute;
   top: 0px;
+  border-bottom : 2px solid white;
 }
 
 .rightpanelbodyfooter {
@@ -16,7 +17,7 @@
   display: flex;
   position: absolute;
   bottom: 0px;
-
+  border-top : 2px solid white;
   flex-grow: 1;
 }
 .rightpanelbodyfooter__select {

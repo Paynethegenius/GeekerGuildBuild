@@ -1,20 +1,16 @@
 import { React, useState, useEffect, useRef, useContext } from "react";
 import "../Characters/contento.css";
-
 import { videoObject } from "../Data/video";
-import cover from "../Images/VideoCover.png";
 import play from "../Svg/play_white.svg";
 import volumeUp from "../Svg/volumeUp.svg";
 import volumeOff from "../Svg/volumeOff.svg";
 import pause from "../Svg/pause_white.svg";
-import twitterLogo from "../Images/tweeter.png";
-import instagramLogo from "../Images/instagram.png";
-import linkedinLogo from "../Images/Linked.png";
 import Thumbnail from "../SubComponents/Thumbnail";
 import { ModelContext } from "../Context/ModelContext";
 
 function Contento({ setCloseModal }) {
-  const { soundSelectButton, soundClickButton , setplayAudio,} = useContext(ModelContext);
+  const { soundSelectButton, soundClickButton, setplayAudio } =
+    useContext(ModelContext);
 
   let clickStyle = {
     Edits: {
@@ -40,7 +36,7 @@ function Contento({ setCloseModal }) {
   const [mute, setMute] = useState(false);
   const [Icon, setIcon] = useState(play);
   const [volumeIcon, setVolumeIcon] = useState(volumeUp);
-  const [showCover, setShowCover] = useState(false);
+
   const [time, setTime] = useState(0);
   const [video, setVideo] = useState(videoObject.SocialMedia[0].video);
   const [category, setCategory] = useState(videoObject.SocialMedia);
@@ -83,15 +79,13 @@ function Contento({ setCloseModal }) {
     videoRef.current.load();
     setPlaying(false);
     setIcon(play);
-    setShowCover(true);
   };
 
   const changeDescription = (selectedVideoDescription) => {
     setDetails(selectedVideoDescription);
   };
 
-  useEffect(() => {
-    console.log("aba");
+  useEffect(() => {   
     setCategoryColor();
   }, []);
 
@@ -102,7 +96,7 @@ function Contento({ setCloseModal }) {
         onClick={() => {
           setCloseModal(true);
           soundClickButton();
-          setplayAudio(true)
+          setplayAudio(true);
         }}
         onMouseOver={() => {
           soundSelectButton();
@@ -223,8 +217,7 @@ function Contento({ setCloseModal }) {
                     setDuration(videoRef.current.duration);
                   }}
                   onClick={() => {
-                    setplayAudio(false)
-                    setShowCover(true);
+                    setplayAudio(false);
                     setPlaying(() => {
                       if (!playing) {
                         setIcon(pause);
@@ -247,7 +240,6 @@ function Contento({ setCloseModal }) {
                   }}
                   onEnded={() => {
                     setPlaying(false);
-                    setShowCover(false);
                   }}
                 >
                   {" "}
@@ -265,7 +257,6 @@ function Contento({ setCloseModal }) {
                       alt="controls"
                       onClick={() => {
                         if (Icon === play) {
-                          setShowCover(true);
                           setIcon(pause);
                           videoRef.current.play();
                           setPlaying(true);
@@ -301,8 +292,7 @@ function Contento({ setCloseModal }) {
                 </div>
               </div>
               <div className="contento__videos">
-                {category.map((item) => {
-                  console.log(item);
+                {category.map((item) => {              
                   return (
                     <Thumbnail
                       category={category}

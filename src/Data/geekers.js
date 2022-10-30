@@ -228,7 +228,7 @@ export const Webo = {
           />
         </svg>
       ),
-      level: 290,
+      level: 390,
       fill: "#F8AC2B",
     },
   ],

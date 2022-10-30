@@ -18,74 +18,17 @@ function LeftPanel() {
     setCloseWeboModal,
     setCloseTeachoModal,
     setCloseSoundoModal,
-    setCloseContentoModal,   
+    setCloseContentoModal,
     setActiveCharacter,
     setOption,
     playAudio,
-    setplayAudio
+    setplayAudio,
   } = useContext(ModelContext);
 
-  const {} = useContext(ModelContext);
-
   const [character, setCharacter] = useState(Webo);
-
   const clickRef = useRef(null);
   const selectRef = useRef(null);
   const leftPanelContentBodyRef = useRef(null);
-
-  const glowWebo = () => {
-    gsap.fromTo(
-      ".active",
-      {
-       backgroundColor : "black"
-      },
-      {
-        backgroundColor : "blue",
-        yoyo: true,
-        repeat: -1,
-      }
-    );
-  };
-
-  useEffect(() => {
-    animate();
-   
-    // glowWebo();
-    // if (activeCharacter.Webo === "active") {
-    //   glowWebo(".webo");
-    // }
-    // if (activeCharacter.Contento === "active") {
-    //   glowWebo(".contento");
-    // }
-    // if (activeCharacter.Soundo === "active") {
-    //   glowWebo(".soundo");
-    // }
-    // if (activeCharacter.Teacho === "active") {
-    //   glowWebo(".teacho");
-    // }
-
-    // return()=>{
-
-    //   gsap.to(".webo", {
-       
-    //       backgroundColor : "blue",
-    //       yoyo: false,
-    //       repeat : 0
-    //   });
-    // }
-
-  }, [activeCharacter]);
-
-
-  
-  const soundSelectButton = () => {
-    selectRef.current.play();
-  };
-  const soundClickButton = (char) => {
-    if (char !== character) {
-      clickRef.current.play();
-    }
-  };
 
   const animate = (char) => {
     if (char !== character) {
@@ -113,6 +56,20 @@ function LeftPanel() {
       );
     }
   };
+
+  const soundSelectButton = () => {
+    selectRef.current.play();
+  };
+  const soundClickButton = (char) => {
+    if (char !== character) {
+      clickRef.current.play();
+    }
+  };
+
+  useEffect(() => {
+    animate();
+  }, []);
+
   return (
     <div className="leftpanelbody">
       <div className="leftpanelbody__margin">
@@ -123,11 +80,15 @@ function LeftPanel() {
       <div className="leftpanelbody__content ">
         <div className="leftpanelbody__content__heading  allheaders">
           <h1>SELECT A CHARACTER</h1>{" "}
-          <img className="leftpanelbody__content__heading__mute" src = {volumeOff} alt= "mute" onClick ={()=>{
-
-            console.log("clicking")
-            playAudio ?  setplayAudio(false) :  setplayAudio(true)
-          }}/>
+          <img
+            className="leftpanelbody__content__heading__mute"
+            src={volumeOff}
+            alt="mute"
+            onClick={() => {
+            
+              playAudio ? setplayAudio(false) : setplayAudio(true);
+            }}
+          />
         </div>
         <div
           className="leftpanelbody__content__body"
@@ -155,8 +116,7 @@ function LeftPanel() {
           <div className="leftpanelbody__content__selection_inner">
             <div className="leftpanelbody__content__selection__Avatars">
               <img
-                onClick={() => {
-                  console.log(leftPanelContentBodyRef);
+                onClick={() => {                 
                   leftPanelContentBodyRef.current.scrollTo(0, 0);
                   setOption(6);
                   soundClickButton(Webo);

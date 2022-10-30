@@ -68,13 +68,6 @@ draco.setDecoderConfig({ type: 'js' });
     // GLTF loader
     const loader = new GLTFLoader();
     loader.setDRACOLoader(draco)
-  
-
-   
-
-// Specify path to a folder containing WASM/JS decoding libraries.
-
-
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -137,8 +130,6 @@ draco.setDecoderConfig({ type: 'js' });
             animations[i].tracks
           ),
         ]);
-
-        //animOptionsByName[animations[i].name] = animations[i].name;
       }
 
     
@@ -159,8 +150,6 @@ draco.setDecoderConfig({ type: 'js' });
       Tweeto.timeScale = 4;
       Contento.timeScale = 0.5;
 
-    
-      // // actionWalk.setEffectiveWeight(1);
 
       HoverAction.play();
       BladesCase.play();
@@ -176,8 +165,7 @@ draco.setDecoderConfig({ type: 'js' });
         
 
         (gltf) => {
-          console.log( (gltf.loaded / 192000) + '% loading' );
-          console.log( (gltf.total) + '% loading' );
+        
         }
       );
     }
@@ -187,12 +175,12 @@ draco.setDecoderConfig({ type: 'js' });
       sizes.width = window.innerWidth - leftPanelDetails?.current.clientWidth;
       sizes.height = leftPanelDetails?.current.clientHeight;
 
-      console.log(sizes.height)
+   
 
       if (sizes.width < 120) {
         renderer.setSize(0, 0);
         setThreeMake(false);
-        console.log("threeMake", threeMake)
+      
       } else {
         setThreeMake(true);
         canvas.width = sizes.width;
@@ -207,9 +195,8 @@ draco.setDecoderConfig({ type: 'js' });
     
 
     /* Scene */
-    const sceneBgColor = new THREE.Color("white");
-    scene.background = new THREE.Color(parameters.color);
-    scene.fog = new THREE.FogExp2(0xefd1b5, 0.0025);
+     scene.background = new THREE.Color(parameters.color);
+     scene.fog = new THREE.FogExp2(0xefd1b5, 0.0025);
 
     //Orbit Control
     const orbit = new OrbitControls(camera, canvas);
@@ -257,27 +244,7 @@ draco.setDecoderConfig({ type: 'js' });
 
     loadscene(sceneModel, scene, 2.8);
 
-    //GUI Initialize
-
-    // if (datGui) {
-    //   datGui.add(parameters, "positionX", -20, 20, 1).onChange(() => {
-    //     camera.position.x = parameters.positionX;
-    //     camera.updateProjectionMatrix();
-    //   });
-    //   datGui.add(parameters, "positionY", -20, 20, 1).onChange(() => {
-    //     camera.position.y = parameters.positionY;
-    //     camera.updateProjectionMatrix();
-    //   });
-    //   datGui.add(parameters, "positionZ", -20, 20, 1).onChange(() => {
-    //     camera.position.z = parameters.positionZ;
-    //     camera.updateProjectionMatrix();
-    //   });
-
-    //   datGui.addColor(parameters, "color").onChange((e) => {
-    //     scene.background.set(e);
-    //   });
-    // }
-
+    
     //Animation
     const clock = new THREE.Clock();
     let previousTime = 0;
@@ -299,6 +266,7 @@ draco.setDecoderConfig({ type: 'js' });
       window.requestAnimationFrame(tick);
     };
 
+    //Initialize
     tick();
 
     return () => {

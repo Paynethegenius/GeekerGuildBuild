@@ -1,25 +1,17 @@
-import React, { useState, useContext } from "react";
-import play from "../Images/baseline_play_arrow_white_24dp.png";
-import pause from "../Images/baseline_pause_white_24dp.png";
-import replay from "../Images/baseline_replay_white_24dp.png";
-import { ModelContext } from "../Context/ModelContext";
+import React from "react";
+
 
 import "../Modals/intromodal.css";
 import GeneralAudioControl from "../Utility/GeneralAudioControl";
 
-
-function IntroModal({ setCloseIntroModal}) {
-
-
-
+function IntroModal({ setCloseIntroModal }) {
   return (
     <div className="charsel__intro">
-    <div className="charsel__intro__question">
-    WHO IS GENIUS?</div>
+      <div className="charsel__intro__question">WHO IS GENIUS?</div>
       <div className="charsel__intro__welcome">
-      <div className="charsel__intro__muteAudio">
-      <GeneralAudioControl /> </div>
-      
+        <div className="charsel__intro__muteAudio">
+          <GeneralAudioControl />
+        </div>
 
         <div className="charsel__intro__welcome__text">
           <br></br>
@@ -61,13 +53,11 @@ function IntroModal({ setCloseIntroModal}) {
         <div className="charsel__intro__welcome__close">
           <button
             onClick={() => {
-              setCloseIntroModal(true);
-              
+              setCloseIntroModal(false);
             }}
           >
             Close
           </button>
-         
         </div>
       </div>
     </div>

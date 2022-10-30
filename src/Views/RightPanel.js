@@ -20,11 +20,8 @@ function RightPanel({ leftPanelDetails }) {
     setCloseTeachoModal,
     setCloseSoundoModal,
     setCloseContentoModal,
-    setCloseIntroModal,
-    closeIntroModal,
-    soundSelectButton,
     soundClickButton,
-    dismissLoader, setDismissLoader,
+    dismissLoader,
   } = useContext(ModelContext);
 
   

@@ -12,7 +12,6 @@ export const cameraParam = {
 };
 
 export const setCamera = (camera, orbit) => {
-console.log("setCamera", camera, "orbit", orbit.target,);
   cameraParam.position_x = camera.position.x;
   cameraParam.position_y = camera.position.y;
   cameraParam.position_z = camera.position.z;

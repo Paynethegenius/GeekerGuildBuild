@@ -30,9 +30,7 @@ function GeneralAudioControl({ flag }) {
   return (
     <div className="generalAudioControl">
       <img
-        onClick={() => {
-          console.log("button clicked");
-
+        onClick={() => { 
           playControls();
         }}
         src={musicIcon}

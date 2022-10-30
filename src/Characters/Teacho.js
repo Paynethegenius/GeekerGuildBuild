@@ -25,7 +25,7 @@ function Teacho({ setCloseModal }) {
   
 
   const scrollPage = (e) => {
-    console.log(e);
+   
     if (e.deltaY > 0) {
       rightRef.current.scrollBy(rightRef.current.scrollX, 80);
     } else {
