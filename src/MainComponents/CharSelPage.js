@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import LeftPanel from "../Views/LeftPanel";
 import RightPanel from "../Views/RightPanel";
 import "../MainComponents/charselpage.css";
@@ -11,8 +11,6 @@ import IntroModal from "../Modals/IntroModal";
 import { ModelContext } from "../Context/ModelContext";
 
 function CharSelPage() {
-
-  
   const {
     closeIntroModal,
     setCloseIntroModal,
@@ -33,36 +31,39 @@ function CharSelPage() {
   const referenceDiv = useRef("");
   const charselRef = useRef(null);
 
-  const createThreeInstance = () => {
-    if (sizes.width <= 600) {
-      setThreeMake(false);
-    } else {
-      setThreeMake(true);
-    }
-  };
-
   const sizes = {
     width: window.innerWidth,
     height: window.innerHeight,
   };
 
-  useEffect(()=>{
-    createThreeInstance();
-    //load canva element if screen size permits.
-  },[])
+  const [screenSize, setScreenSize] = useState(sizes);
 
+  const createThreeInstance = () => {
+    if (screenSize.width <= 600) {
+      setThreeMake(false);
+    } else {
+      setThreeMake(true);
+    }
+
+    console.log(threeMake, screenSize);
+  };
+  createThreeInstance();
+  useEffect(() => {
+   
+    //load canva element if screen size permits.
+  },[]);
+
+  
 
   useEffect(() => {
     if (playAudio === false) {
       bgMusicRef.current.pause();
-    
     }
 
     if (playAudio === true) {
       bgMusicRef.current.play();
     }
   }, [playAudio, bgMusicRef]);
-
 
   return (
     <div className="charselpage" ref={charselRef}>
@@ -78,9 +79,11 @@ function CharSelPage() {
       <div className="leftPanel" ref={referenceDiv}>
         <LeftPanel />
       </div>
-      <div className="rightPanel">
-        {threeMake && <RightPanel leftPanelDetails={referenceDiv} />}
-      </div>
+      {threeMake && (
+        <div className="rightPanel">
+          <RightPanel leftPanelDetails={referenceDiv} />
+        </div>
+      )}
     </div>
   );
 }

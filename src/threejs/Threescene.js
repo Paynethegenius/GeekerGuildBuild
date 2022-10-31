@@ -17,29 +17,18 @@ import { dirLight, hemiLight } from "./lights";
 
 function Threescene({ leftPanelDetails }) {
   // const [datGui, setDatGui] = useState(new dat.GUI());
-
+  const {setDismissLoader, threeMake, setErrorLoader, dismissLoader } = useContext(ModelContext);
     //Sizes
+  
+   
+
+  useEffect(() => {
+
     const sizes = {
       width: window.innerWidth,
       height: window.innerHeight,
     };
 
-
-  const createThreeInstance = ()=>{
-
-    if(sizes.width < 601){
-      setThreeMake(false);
-    }else{
-      setThreeMake(true);
-    }
-  }
-
- const {dismissLoader, setDismissLoader, setThreeMake, threeMake
-} = useContext(ModelContext);
-
-  useEffect(() => {
-
-    createThreeInstance();
 
     const scene = new THREE.Scene();
 
@@ -95,7 +84,9 @@ draco.setDecoderConfig({ type: 'js' });
       loader.load(
         path,
         (gltf) => {
+          console.log("loaded")
           //asset fetch
+         
           const root = gltf.scene;
           root.scale.set(s, s, s);
           root.position.set(0, -26, 0);
@@ -160,12 +151,20 @@ draco.setDecoderConfig({ type: 'js' });
       Contento.play();
       Tweeto.play();
 
-      setDismissLoader(false)
+      setTimeout(setDismissLoader(false), 3000) 
         },
         
 
         (gltf) => {
-        
+          setDismissLoader(true)
+       
+        },
+
+        (gltf)=>{
+
+          setDismissLoader(true);
+          setErrorLoader(true);
+
         }
       );
     }
@@ -179,10 +178,10 @@ draco.setDecoderConfig({ type: 'js' });
 
       if (sizes.width < 120) {
         renderer.setSize(0, 0);
-        setThreeMake(false);
+       
       
       } else {
-        setThreeMake(true);
+       
         canvas.width = sizes.width;
         canvas.height = sizes.height;
 

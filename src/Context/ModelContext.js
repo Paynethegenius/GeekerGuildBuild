@@ -28,6 +28,8 @@ function ModelContextProvider(props) {
   const [playAudio, setplayAudio] = useState(true);
   
   const [dismissLoader, setDismissLoader] = useState(true);
+  const [errorLoader, setErrorLoader] = useState(false);
+
   const [threeMake, setThreeMake] = useState(false);
 
 
@@ -62,7 +64,8 @@ function ModelContextProvider(props) {
         soundClickButton,
         option, setOption,
         playAudio, setplayAudio,
-        dismissLoader, setDismissLoader,    
+        dismissLoader, setDismissLoader,  
+        errorLoader, setErrorLoader,  
         threeMake, setThreeMake,  
         bgMusicRef,
       }}

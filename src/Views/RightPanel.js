@@ -12,6 +12,7 @@ import gsap from "gsap";
 import { duration } from "@mui/material";
 import { Contento, Webo, Soundo, Teacho } from "../Data/geekers.js";
 import Loading from "../Utility/Loading";
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 function RightPanel({ leftPanelDetails }) {
   const {
@@ -22,6 +23,7 @@ function RightPanel({ leftPanelDetails }) {
     setCloseContentoModal,
     soundClickButton,
     dismissLoader,
+    errorLoader
   } = useContext(ModelContext);
 
   
@@ -66,6 +68,16 @@ function RightPanel({ leftPanelDetails }) {
             </div>
           
         </div>)}
+
+        {errorLoader && ( <div className="righpanel__canva__loadingBar">
+        <p>Failed to load 3D component.</p>
+        <p>Please Reload Page</p> 
+           <div className="loading__container">
+           
+          <RefreshIcon sx={{ fontSize: 20 }} />
+           </div>
+         
+       </div>)}
         <Threescene leftPanelDetails={leftPanelDetails} />
       </div>
 

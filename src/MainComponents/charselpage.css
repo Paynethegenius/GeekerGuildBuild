@@ -22,25 +22,25 @@
   overflow-y: overlay;
   overflow-x: hidden;
   position: relative;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .leftPanel {
   background-color: var(--blue);
   width: 26.15%;
-  min-width: 400px;
-  max-width: 502px;
-  min-height: 550px;
+  min-width: 450px;
+  /* max-width: 502px; */
+  /* min-height: 550px; */
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 10;
+ 
 }
-
 .rightPanel {
   background-color: var(--blue);
   flex-grow: 1;
-  min-height: 550px;
+  /* min-height: 550px; */
   display: flex;
   flex-direction: column;
   position: relative;
@@ -58,16 +58,21 @@
   }
 
   .leftPanel {
+    background-color: var(--blue);
     width: 100%;
-    max-width: 600px;
-    min-width: 0px;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
+    min-width: unset;
+    max-width: unset;
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+}
 
   .rightPanel {
-    display: block;
+    display: none;
     visibility: hidden;
     width: 0px;
+    
   }
 }
